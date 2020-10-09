@@ -14,7 +14,7 @@ state = {
 
 login = (e) => {
   e.preventDefault()
-  console.log(e.target.email.value)
+
   fetch("http://localhost:3000/api/v1/login", {
             method: "POST",
             headers: {
@@ -31,7 +31,7 @@ login = (e) => {
             localStorage.id = userInfo.id 
             localStorage.name = userInfo.name 
             this.setState({
-              currentUser: userInfo
+              currentUser: localStorage
             })  
             console.log(userInfo)
         })
@@ -74,8 +74,10 @@ createProfile = (e) => {
 
 logout = () =>{
   localStorage.clear()
-  console.log('local storage cleared')
+  console.log(localStorage)
 }
+
+
 
 render(){
   return (
