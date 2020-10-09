@@ -9,7 +9,7 @@ import CreateProfileForm from './CreatProfileForm';
 
 class App extends Component {
 state = {
-  currentUser: null
+  currentUser: {}
 }
 
 login = (e) => {
@@ -37,17 +37,60 @@ login = (e) => {
         })
 }
 
+createProfile = (e) => {
+  e.preventDefault()
+  // console.log(e.target.name.value)
+  fetch("http://localhost:3000/api/v1/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              user:{
+
+                name: e.target.name.value,
+                email: e.target.email.value,
+                password: e.target.password.value,
+                weight: e.target.weight.value,
+                bank: e.target.bank.value,
+                image: e.target.image.value,
+                city: e.target.city.value
+              }
+            })
+        })
+        .then(res => res.json())
+        .then(userInfo => {
+            localStorage.token = userInfo.token
+            localStorage.id = userInfo.id 
+            localStorage.name = userInfo.name 
+            this.setState({
+              currentUser: {
+                name: userInfo.name
+              }
+            })  
+            console.log(userInfo)
+        })
+}
+
+logout = () =>{
+  localStorage.clear()
+  console.log('local storage cleared')
+}
+
 render(){
   return (
     <BrowserRouter>
       <Header />
+      <button onClick={this.logout}>Logout</button><br></br><br></br>
 
       <Switch>
         <Route path='/home' render={(routerProps) =>
-           <LoginSignUp {...routerProps} login={this.login} currentUser={this.state.currentUser}/>} />
+           <LoginSignUp {...routerProps} 
+              login={this.login} 
+              currentUser={this.state.currentUser}/>} />
 
         <Route path='/create_profile' render={(routerProps) => 
-            <CreateProfileForm {...routerProps} />} />
+            <CreateProfileForm {...routerProps} createProfile={this.createProfile}/>} />
          
        
 
