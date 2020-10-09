@@ -14,23 +14,25 @@ state = {
 
 login = (e) => {
   e.preventDefault()
-  console.log(e.target.value)
+  console.log(e.target.email.value)
   fetch("http://localhost:3000/api/v1/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                email: 'test2@gmail.com',
-                password: 'password'
+                email: e.target.email.value,
+                password: e.target.password.value
             })
         })
         .then(res => res.json())
         .then(userInfo => {
             localStorage.token = userInfo.token
-   
             localStorage.id = userInfo.id 
-            localStorage.name = userInfo.name   
+            localStorage.name = userInfo.name 
+            this.setState({
+              currentUser: userInfo
+            })  
             console.log(userInfo)
         })
 }
