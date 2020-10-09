@@ -5,6 +5,10 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import LoginSignUp from './LoginSignUp';
 import Header from './Header';
 import CreateProfileForm from './CreatProfileForm';
+import GoalForm from './GoalForm';
+import MyDash from './MyDash';
+import Navbar from './Navbar';
+import MyFoodLog from './MyFoodLog';
 
 
 class App extends Component {
@@ -31,7 +35,7 @@ login = (e) => {
             localStorage.id = userInfo.id 
             localStorage.name = userInfo.name 
             this.setState({
-              currentUser: localStorage
+              currentUser: userInfo.user 
             })  
             console.log(userInfo)
         })
@@ -65,7 +69,7 @@ createProfile = (e) => {
             localStorage.name = userInfo.name 
             this.setState({
               currentUser: {
-                name: userInfo.name
+                name: userInfo
               }
             })  
             console.log(userInfo)
@@ -84,6 +88,7 @@ render(){
     <BrowserRouter>
       <Header />
       <button onClick={this.logout}>Logout</button><br></br><br></br>
+      <Navbar />
 
       <Switch>
         <Route path='/home' render={(routerProps) =>
@@ -93,7 +98,15 @@ render(){
 
         <Route path='/create_profile' render={(routerProps) => 
             <CreateProfileForm {...routerProps} createProfile={this.createProfile}/>} />
-         
+
+        <Route path='/goals_form' render={(routerProps) =>
+          <GoalForm {...routerProps} />} /> 
+
+        <Route path='/my_dash' render={(routerProps) =>
+          <MyDash {...routerProps} currentUser={this.state.currentUser}/> }/>
+        
+        <Route path='/my_food_log' render={(routerProps) =>
+          <MyFoodLog {...routerProps} />} />
        
 
       </Switch>
