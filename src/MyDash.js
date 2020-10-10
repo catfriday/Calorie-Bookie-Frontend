@@ -16,7 +16,7 @@ const MyDash = (props) => {
 
         <h1>My Dash</h1><br></br><br></br>
         <h3>{`Hello ${name}!`}</h3>
-        <button onClick={(e) => foodlog(e)}>Go to My Food Log</button>
+
         <div>
             <img src={image}></img>
         </div>

@@ -7,14 +7,14 @@ import Header from './Header';
 import CreateProfileForm from './CreatProfileForm';
 import GoalForm from './GoalForm';
 import MyDash from './MyDash';
-import Navbar from './Navbar';
 import MyFoodLog from './MyFoodLog';
+import NewNav from './NewNav';
 
 
 class App extends Component {
 state = {
   currentUser: {},
-  logedIn: false 
+  loggedIn: false 
 }
 
 login = (e) => {
@@ -37,7 +37,7 @@ login = (e) => {
             localStorage.name = userInfo.name 
             this.setState({
               currentUser: userInfo.user,
-              logedIn:true 
+              loggedIn:true 
             })  
             // console.log(userInfo)
         })
@@ -81,6 +81,9 @@ createProfile = (e) => {
 
 logout = () =>{
   localStorage.clear()
+  this.setState({
+    loggedIn: false
+  })
   console.log(localStorage)
 }
 
@@ -89,15 +92,17 @@ logout = () =>{
 render(){
   return (
     <BrowserRouter>
+      <div className='app'>
       <Header />
-      {this.state.logedIn ? 
+     
+      {this.state.loggedIn ? 
           <Fragment>
-            <button onClick={this.logout}>Logout</button><br></br><br></br> 
+            <NewNav logout={this.logout}/>
           </Fragment>
           
           : null }
 
-      <Navbar />
+      
 
       <Switch>
         <Route path='/home' render={(routerProps) =>
@@ -119,6 +124,7 @@ render(){
        
 
       </Switch>
+      </div> 
     </BrowserRouter>
   );
    }
