@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
@@ -13,7 +13,8 @@ import MyFoodLog from './MyFoodLog';
 
 class App extends Component {
 state = {
-  currentUser: {}
+  currentUser: {},
+  logedIn: false 
 }
 
 login = (e) => {
@@ -35,9 +36,10 @@ login = (e) => {
             localStorage.id = userInfo.id 
             localStorage.name = userInfo.name 
             this.setState({
-              currentUser: userInfo.user 
+              currentUser: userInfo.user,
+              logedIn:true 
             })  
-            console.log(userInfo)
+            // console.log(userInfo)
         })
 }
 
@@ -69,7 +71,8 @@ createProfile = (e) => {
             localStorage.name = userInfo.name 
             this.setState({
               currentUser: {
-                name: userInfo
+                name: userInfo,
+                logedIn:true 
               }
             })  
             console.log(userInfo)
@@ -87,7 +90,13 @@ render(){
   return (
     <BrowserRouter>
       <Header />
-      <button onClick={this.logout}>Logout</button><br></br><br></br>
+      {this.state.logedIn ? 
+          <Fragment>
+            <button onClick={this.logout}>Logout</button><br></br><br></br> 
+          </Fragment>
+          
+          : null }
+
       <Navbar />
 
       <Switch>
@@ -106,7 +115,7 @@ render(){
           <MyDash {...routerProps} currentUser={this.state.currentUser}/> }/>
         
         <Route path='/my_food_log' render={(routerProps) =>
-          <MyFoodLog {...routerProps} />} />
+          <MyFoodLog {...routerProps} currentUser={this.state.currentUser}/>} />
        
 
       </Switch>
