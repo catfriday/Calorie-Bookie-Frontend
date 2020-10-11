@@ -16,7 +16,7 @@ const NewNav = (props) =>{
     
     <div >
         <button onClick={() => history.push('/my_dash')} className="nav-menu" id='home-btn'>My Dash</button>
-        <button  className="nav-menu " id='listed-btn'>My Profile</button>
+        <button onClick={() => history.push('/my_profile')} className="nav-menu " id='listed-btn'>My Profile</button>
         <button onClick={() => history.push('/my_food_log')} className="nav-menu" id='list-bag-btn'>My Food Log</button>
         <button className="nav-menu" id='rented-btn'>My Bet Dash</button>
         <button onClick={() => {
