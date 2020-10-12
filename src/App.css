@@ -62,9 +62,15 @@
     border-bottom: black;
   }
 
+  li:hover {
+    background-color:white;
+    color: black;
+  }
+
   div.search-tile {
     justify-content: center;
-    background-color: lightblue;
+    color: white;
+    background-color: black;
     width: 350px;
     height: 210px;
     overflow: scroll;

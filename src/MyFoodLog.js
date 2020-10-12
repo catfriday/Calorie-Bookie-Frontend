@@ -47,7 +47,7 @@ const MyFoodLog = (props) => {
                 {log ? 
                     <div>
                         <h1>{log.day_number.toUpperCase()}</h1><br></br>
-                        <FoodSearchBar />
+                        <FoodSearchBar log={log}/>
                     </div>
                 :
                 <div>

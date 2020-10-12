@@ -1,9 +1,11 @@
 import React, { useState }  from 'react';
+import FoodItem from './FoodItem';
 import FoodList from './FoodList';
 
 const FoodSearchBar = (props) => {
 
     const [food_item, getFood] = useState(null)
+    const [reg_food_item, regularFoodItem] = useState(null)
 
 
     const searchNameSubmit = (e) => {
@@ -26,7 +28,7 @@ const FoodSearchBar = (props) => {
             .then(resp => resp.json())
             .then(response => {
                 console.log(response)
-                getFood(
+                regularFoodItem(
                     {
                         food_name: response['foods'][0].food_name,
                         calories: response['foods'][0].nf_calories,
@@ -88,7 +90,14 @@ const FoodSearchBar = (props) => {
 
         {
             food_item ? 
-                <FoodList food={food_item}/>
+                <FoodList food={food_item} log={props.log}/>
+                :
+                null
+        }    
+
+{
+            reg_food_item ? 
+                <FoodItem food={reg_food_item} log={props.log}/>
                 :
                 null
         }    

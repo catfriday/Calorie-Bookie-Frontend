@@ -1,22 +1,10 @@
-import React, { Fragment, useState } from 'react'
-import './App.css';
+import React, {useState} from 'react'
 
-const FoodList = (props) => {
+const FoodItem = (props) => {
 
-    const [list_item, getListItem] = useState(null)
     const [servings, servingSize] = useState(0)
     const [category, categoryType] = useState('')
 
-
-    let liClick = (foodObj) =>{
-        console.log(foodObj)
-        getListItem({
-            food_name: foodObj.brand_name_item_name,
-            calories: foodObj.nf_calories,
-            serving_qty: foodObj.serving_qty,
-            serving_unit: foodObj.serving_unit
-         } )
-    }
 
     let calcCal = (e) =>{  
         servingSize(e.target.value)   
@@ -37,10 +25,10 @@ const FoodList = (props) => {
             body: JSON.stringify({
                 id: props.log.id, 
                 category: category, 
-                food_name: list_item.food_name, 
+                food_name: props.food.food_name, 
                 calories: e.target.calories.value, 
-                serving_qty: list_item.serving_qty, 
-                serving_unit: list_item.serving_unit
+                serving_qty: props.food.serving_qty, 
+                serving_unit: props.food.serving_unit
         })
     })
         .then(resp => resp.json())
@@ -52,33 +40,17 @@ const FoodList = (props) => {
       
     }
 
+
     return(<div>
 
-       <div className='search-tile'>
-        <ul>
-            {props.food.map(foodObj => 
-
-                <Fragment>
-                <h2>{props.food.brand_name}</h2>
-                <li onClick={() => liClick(foodObj)}>
-                    <div>{foodObj.brand_name_item_name}</div>
-                    <p>{`${foodObj.serving_qty}, ${foodObj.serving_unit}, ${foodObj.nf_calories} Calories`}</p>
-                </li>
-                </Fragment>
-            )
-             }
-       
-        </ul>
-        </div> 
-        {list_item ?
-        <div >
-            <p>{list_item.food_name}</p>
-            <h3>{`${list_item.serving_qty} ${list_item.serving_unit}`}</h3>
+<div >
+            <p>{props.food.food_name}</p>
+            <h3>{`${props.food.serving_qty} ${props.food.serving_unit}`}</h3>
             {/* <p>How Many Servings?</p> */}
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label>How Many Servings?</label>
                 <input name="serving" type="number" step="any"  placeholder='serving size' onChange={(e) => calcCal(e)}></input>
-                <label>Calories</label><input name="calories" type="number" placeholder='calories' value={list_item.calories * parseFloat(servings)} ></input><br></br><br></br> 
+                <label>Calories</label><input name="calories" type="number" placeholder='calories' value={props.food.calories * parseFloat(servings)} ></input><br></br><br></br> 
                 <label>Which Meal</label>
                     <select onChange={(e) => categoryType(e.target.value)}>
                         <option disabled selected value> </option>
@@ -90,12 +62,7 @@ const FoodList = (props) => {
                 <input type="submit" value="Add to Food Log"/>
             </form>
         </div>
-        :
-        null}
-
     </div>)
 }
 
-export default FoodList
-
-// category: 'breakfast', food_name: 'eggs', calories: 60, serving_qty: 1, serving_unit: 'piece'
+export default FoodItem
