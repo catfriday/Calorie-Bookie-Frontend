@@ -6,7 +6,7 @@ const FoodList = (props) => {
     const [list_item, getListItem] = useState(null)
     const [servings, servingSize] = useState(0)
     const [category, categoryType] = useState('')
-
+    const [log_entry, afterPost] = useState({})
 
     let liClick = (foodObj) =>{
         console.log(foodObj)
@@ -45,7 +45,7 @@ const FoodList = (props) => {
     })
         .then(resp => resp.json())
         .then(food_entry => {
-            
+            afterPost(food_entry)
             console.log(food_entry)
         
         })
@@ -72,7 +72,7 @@ const FoodList = (props) => {
         </div> 
         {list_item ?
         <div >
-            <p>{list_item.food_name}</p>
+            <h2>{list_item.food_name}</h2>
             <h3>{`${list_item.serving_qty} ${list_item.serving_unit}`}</h3>
             {/* <p>How Many Servings?</p> */}
             <form onSubmit={(e) => handleSubmit(e)}>

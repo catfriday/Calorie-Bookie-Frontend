@@ -11,6 +11,7 @@ import MyFoodLog from './MyFoodLog';
 import NewNav from './NewNav';
 import FoodSearchBar from './FoodSearchBar';
 import FoodItem from './FoodItem';
+import FoodList from './FoodList';
 
 
 class App extends Component {
@@ -124,11 +125,14 @@ render(){
         <Route exact path='/my_food_log' render={(routerProps) =>
           <MyFoodLog {...routerProps} currentUser={this.state.currentUser}/>} />
        
-        <Route path='/my_food_log/:day_number' render={(routerProps) =>
+        {/* <Route path='/my_food_log/:day_number' render={(routerProps) =>
           <FoodSearchBar {...routerProps} /> }/>
 
         <Route path='/food_item' render={(routerProps) =>
           <FoodItem {...routerProps}/> } />
+
+         <Route path='/food_brand' render={(routerProps) =>
+         <FoodList {...routerProps}/>}/>  */}
 
       </Switch>
       </div> 

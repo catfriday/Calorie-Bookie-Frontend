@@ -45,19 +45,13 @@ const MyFoodLog = (props) => {
         
 
         <div>
-                {log ? 
-                    <div>
-                        <h1>{log.day_number.toUpperCase()}</h1><br></br>
-                        <FoodSearchBar log={log}/>
-                    </div>
-                :
-                null}
+                
                 <div>
                     <p>Start Log for Today </p>
         
                     <form onSubmit={(e) => {
                         newLogButton(e)
-                        
+                        // history.push(`/my_food_log/${day}`)
                     }
                     
                     }>
@@ -97,6 +91,13 @@ const MyFoodLog = (props) => {
                         <input type="submit" ></input>
                     </form> 
             </div> 
+            {log ? 
+                    <div>
+                        <h1>{log.day_number.toUpperCase()}</h1><br></br>
+                        <FoodSearchBar log={log}/>
+                    </div>
+                :
+                null}
             
         </div>
 

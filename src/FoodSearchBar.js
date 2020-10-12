@@ -3,6 +3,7 @@ import FoodItem from './FoodItem';
 import FoodList from './FoodList';
 
 
+
 const FoodSearchBar = (props) => {
 
     const [food_item, getFood] = useState(null)
@@ -65,7 +66,7 @@ const FoodSearchBar = (props) => {
     }
 
     return(<div>
-        
+        <br></br><br></br>
             <div>
                 <div>
                     <form onSubmit={(e) => searchNameSubmit(e)}>
