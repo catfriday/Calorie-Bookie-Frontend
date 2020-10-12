@@ -44,7 +44,7 @@ const FoodItem = (props) => {
     return(<div>
 
 <div >
-            <p>{props.food.food_name}</p>
+            <h2>{props.food.food_name}</h2>
             <h3>{`${props.food.serving_qty} ${props.food.serving_unit}`}</h3>
             {/* <p>How Many Servings?</p> */}
             <form onSubmit={(e) => handleSubmit(e)}>

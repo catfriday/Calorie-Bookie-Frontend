@@ -2,6 +2,7 @@ import React, { useState }  from 'react';
 import FoodItem from './FoodItem';
 import FoodList from './FoodList';
 
+
 const FoodSearchBar = (props) => {
 
     const [food_item, getFood] = useState(null)

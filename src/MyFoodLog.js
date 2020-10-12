@@ -3,6 +3,7 @@ import React, { useState }  from 'react';
 import moment from "moment";
 import Log from './Log'
 import FoodSearchBar from './FoodSearchBar';
+import { useHistory } from 'react-router-dom';
 
 const MyFoodLog = (props) => {
 
@@ -10,7 +11,7 @@ const MyFoodLog = (props) => {
     const [date, setDate] = useState(new Date())
     const [log, setLog] = useState(null)
 
-    
+    const history = useHistory();
 
     let newLogButton = (e) =>{
         e.preventDefault()
@@ -50,10 +51,16 @@ const MyFoodLog = (props) => {
                         <FoodSearchBar log={log}/>
                     </div>
                 :
+                null}
                 <div>
                     <p>Start Log for Today </p>
         
-                    <form onSubmit={(e) => newLogButton(e)}>
+                    <form onSubmit={(e) => {
+                        newLogButton(e)
+                        
+                    }
+                    
+                    }>
                         <select onChange={(e) => setDay(e.target.value)}>
                             <option disabled selected value> </option>
                             <option value='day 1' >Day 1</option>
@@ -90,7 +97,7 @@ const MyFoodLog = (props) => {
                         <input type="submit" ></input>
                     </form> 
             </div> 
-            }
+            
         </div>
 
     </div>)

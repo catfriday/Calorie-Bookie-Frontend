@@ -5,11 +5,6 @@ import { useHistory } from 'react-router-dom';
 
 const NewNav = (props) =>{
 
-//    const logout = () =>{
-//         localStorage.clear()
-//         console.log(localStorage)
-//       }
-
     const history = useHistory();
 
     return(

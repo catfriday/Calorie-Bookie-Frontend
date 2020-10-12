@@ -9,6 +9,8 @@ import GoalForm from './GoalForm';
 import MyDash from './MyDash';
 import MyFoodLog from './MyFoodLog';
 import NewNav from './NewNav';
+import FoodSearchBar from './FoodSearchBar';
+import FoodItem from './FoodItem';
 
 
 class App extends Component {
@@ -119,9 +121,14 @@ render(){
         <Route path='/my_dash' render={(routerProps) =>
           <MyDash {...routerProps} currentUser={this.state.currentUser}/> }/>
         
-        <Route path='/my_food_log' render={(routerProps) =>
+        <Route exact path='/my_food_log' render={(routerProps) =>
           <MyFoodLog {...routerProps} currentUser={this.state.currentUser}/>} />
        
+        <Route path='/my_food_log/:day_number' render={(routerProps) =>
+          <FoodSearchBar {...routerProps} /> }/>
+
+        <Route path='/food_item' render={(routerProps) =>
+          <FoodItem {...routerProps}/> } />
 
       </Switch>
       </div> 
