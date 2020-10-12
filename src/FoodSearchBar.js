@@ -1,4 +1,5 @@
 import React, { useState }  from 'react';
+import FoodList from './FoodList';
 
 const FoodSearchBar = (props) => {
 
@@ -61,27 +62,36 @@ const FoodSearchBar = (props) => {
     }
 
     return(<div>
+        
+            <div>
+                <div>
+                    <form onSubmit={(e) => searchNameSubmit(e)}>
+                        <label>
+                            Search For Food by Name
+                        </label>
+                        <input name="food_name" type="text" placeholder='By Name'></input>
+                        <input type="submit" value="Search"/>
+                    </form>
+                </div>
+                        <br></br>
+                <div>
+                    <form  onSubmit={(e) => searchBrandSubmit(e)}>
+                        <label>
+                            Search For Food by Brand
+                        </label>
+                        <input name="food_brand" type="text" placeholder='By Brand'></input>
+                        <input type="submit" value="Search"/>
+                    </form>
+                </div>
+            </div>
+            <br></br><br></br>
 
-        <div>
-            <form onSubmit={(e) => searchNameSubmit(e)}>
-                <label>
-                    Search For Food by Name
-                </label>
-                <input name="food_name" type="text" placeholder='By Name'></input>
-                <input type="submit" value="Search"/>
-            </form>
-        </div>
-<br></br>
-        <div>
-            <form  onSubmit={(e) => searchBrandSubmit(e)}>
-                <label>
-                    Search For Food by Brand
-                </label>
-                <input name="food_brand" type="text" placeholder='By Brand'></input>
-                <input type="submit" value="Search"/>
-            </form>
-        </div>
-
+        {
+            food_item ? 
+                <FoodList food={food_item}/>
+                :
+                null
+        }    
 
     </div>)
 }
