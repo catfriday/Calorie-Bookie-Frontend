@@ -73,10 +73,8 @@ createProfile = (e) => {
             localStorage.id = userInfo.id 
             localStorage.name = userInfo.name 
             this.setState({
-              currentUser: {
-                name: userInfo,
-                logedIn:true 
-              }
+              currentUser: userInfo.user,
+              loggedIn:true    
             })  
             console.log(userInfo)
         })

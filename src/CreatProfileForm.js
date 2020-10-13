@@ -1,11 +1,18 @@
 import   React from 'react'
+import { useHistory } from 'react-router-dom';
 
 const CreateProfileForm = (props) => {
+
+  const history = useHistory();
 
     return(<div>
 
       <div>
-          <form onSubmit={(e) => props.createProfile(e)}>
+          <form onSubmit={(e) => {
+            props.createProfile(e)
+            history.push('/my_dash')
+          }
+          }>
              
                     <input name="name" type="text" placeholder='name'></input><br></br>
                     <input name="email" type="text" placeholder='email'></input><br></br>
