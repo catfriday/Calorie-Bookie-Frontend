@@ -92,14 +92,14 @@ const FoodSearchBar = (props) => {
 
         {
             food_item ? 
-                <FoodList food={food_item} log={props.log}/>
+                <FoodList food={food_item} log_id={props.log_id}/>
                 :
                 null
         }    
 
 {
             reg_food_item ? 
-                <FoodItem food={reg_food_item} log={props.log}/>
+                <FoodItem food={reg_food_item} log_id={props.log_id}/>
                 :
                 null
         }    

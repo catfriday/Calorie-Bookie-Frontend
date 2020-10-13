@@ -108,6 +108,25 @@ logout = () =>{
 
 createlogs =() => {
 console.log(this.state.currentUser)
+
+fetch('http://localhost:3000/api/v1/create_thirty', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+                Authorization:  `Bearer ${localStorage.token}`
+        },
+            body: JSON.stringify({
+                id: this.state.currentUser.id
+        })
+    })
+        .then(resp => resp.json())
+        .then(logs => {
+           this.setState({
+             dailyLogs:logs 
+           })
+            console.log(logs)
+        })
 }
 
 
@@ -120,7 +139,8 @@ render(){
       {this.state.loggedIn ? 
           <Fragment>
             <NewNav logout={this.logout}/>
-            <button onClick={this.createlogs}>Create 30 Day Log</button>
+            {this.state.dailyLogs.length === 0 ? <button onClick={this.createlogs}>Create 30 Day Log</button>
+            : null}
           </Fragment>
           
            : null } 

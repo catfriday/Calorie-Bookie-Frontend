@@ -7,46 +7,57 @@ import { useHistory } from 'react-router-dom';
 
 const MyFoodLog = (props) => {
 
-    const [day, setDay] = useState('')
-    const [date, setDate] = useState(new Date())
-    const [log, setLog] = useState(null)
+    const [log_id, setId] = useState(null)
+    // const [date, setDate] = useState(new Date())
+    const [log, setLog] = useState(false)
 
     const history = useHistory();
 
     let newLogButton = (e) =>{
         e.preventDefault()
-       
-        fetch('http://localhost:3000/api/v1/daily_logs', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-                Authorization:  `Bearer ${localStorage.token}`
-        },
-            body: JSON.stringify({
-                user_id: props.currentUser.id, 
-                date: date, 
-                day_number: day
-        })
-    })
-        .then(resp => resp.json())
-        .then(log => {
-            setLog(log)
-            console.log(log)
-        })
+     
+       setLog(true)
+    //     fetch('http://localhost:3000/api/v1/daily_logs', {
+    //         method: 'POST',
+    //         headers: {
+    //         'Content-Type': 'application/json',
+    //         'Accept': 'application/json',
+    //             Authorization:  `Bearer ${localStorage.token}`
+    //     },
+    //         body: JSON.stringify({
+    //             id: log_id
+    //     })
+    // })
+    //     .then(resp => resp.json())
+    //     .then(log => {
+    //         setLog(log)
+    //         console.log(log)
+    //     })
     }
 
-    return(<div>
-
-
+    return(
+    <div>
         <h1>My Food Log</h1>
+      
 
-        
-        
+      <form onSubmit={(e) => newLogButton(e)}>
 
-        <div>
-                
+        <select onChange={(e) => setId(e.target.value)}>
+            <option disabled selected value> </option>
+                {props.currentUser.daily_logs.map(log => {
+                    return  <option value={log.id} data-value={log.day_number} >{`${log.day_number}`}</option>
+                    })}  
+        </select>
+            <input type="submit" ></input>
+    </form>
+            {log ? 
                 <div>
+                    {/* <h1>{log.day_number.toUpperCase()}</h1><br></br> */}
+                    <FoodSearchBar log={log} log_id={log_id} />
+                </div>
+                :
+                null}
+                {/* <div>
                     <p>Start Log for Today </p>
         
                     <form onSubmit={(e) => {
@@ -91,15 +102,15 @@ const MyFoodLog = (props) => {
                         <input type="submit" ></input>
                     </form> 
             </div> 
-            {log ? 
+            {log_id ? 
                     <div>
                         <h1>{log.day_number.toUpperCase()}</h1><br></br>
                         <FoodSearchBar log={log}/>
                     </div>
                 :
-                null}
+                null} */}
             
-        </div>
+        
 
     </div>)
 }
