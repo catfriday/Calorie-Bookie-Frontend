@@ -17,7 +17,9 @@ import FoodList from './FoodList';
 class App extends Component {
 state = {
   currentUser: {},
-  loggedIn: false 
+  loggedIn: false,
+  dailyLogs: []
+  
 }
 
 login = (e) => {
@@ -37,12 +39,20 @@ login = (e) => {
         .then(userInfo => {
             localStorage.token = userInfo.token
             localStorage.id = userInfo.id 
-            localStorage.name = userInfo.name 
+            localStorage.name = userInfo.name
+            localStorage.email = userInfo.email
+            localStorage.weight = userInfo.weight
+            localStorage.bank = userInfo.bank
+            localStorage.image = userInfo.image
+            localStorage.city = userInfo.city
+            localStorage.loggedIn = true  
+            // localStorage.user = userInfo
             this.setState({
-              currentUser: userInfo.user,
-              loggedIn:true 
+              currentUser: userInfo,
+              loggedIn:true,
+              dailyLogs: userInfo.daily_logs
             })  
-            // console.log(userInfo)
+            console.log(userInfo)
         })
 }
 
@@ -69,14 +79,22 @@ createProfile = (e) => {
         })
         .then(res => res.json())
         .then(userInfo => {
-            localStorage.token = userInfo.token
-            localStorage.id = userInfo.id 
-            localStorage.name = userInfo.name 
-            this.setState({
-              currentUser: userInfo.user,
-              loggedIn:true    
-            })  
-            console.log(userInfo)
+          localStorage.token = userInfo.token
+          localStorage.id = userInfo.id 
+          localStorage.name = userInfo.name
+          localStorage.email = userInfo.email
+          localStorage.weight = userInfo.weight
+          localStorage.bank = userInfo.bank
+          localStorage.image = userInfo.image
+          localStorage.city = userInfo.city
+          localStorage.loggedIn = true  
+          // localStorage.user = userInfo
+          this.setState({
+            // currentUser: userInfo.user,
+            // currentUser: localStorage,
+            // loggedIn:true 
+          })  
+          console.log(userInfo)
         })
 }
 
@@ -88,6 +106,9 @@ logout = () =>{
   console.log(localStorage)
 }
 
+createlogs =() => {
+console.log(this.state.currentUser)
+}
 
 
 render(){
@@ -95,14 +116,14 @@ render(){
     <BrowserRouter>
       <div className='app'>
       <Header />
-     
+      {/* this.state.currentUser.token */}
       {this.state.loggedIn ? 
           <Fragment>
             <NewNav logout={this.logout}/>
+            <button onClick={this.createlogs}>Create 30 Day Log</button>
           </Fragment>
           
-          : null }
-
+           : null } 
       
 
       <Switch>
