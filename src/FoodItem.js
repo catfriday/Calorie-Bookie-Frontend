@@ -33,7 +33,8 @@ const FoodItem = (props) => {
     })
         .then(resp => resp.json())
         .then(food_entry => {
-            
+            props.updateLog(food_entry)
+            props.setFoodItems(food_entry.food_items)
             console.log(food_entry)
         
         })

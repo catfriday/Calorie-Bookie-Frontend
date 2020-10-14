@@ -75,3 +75,7 @@
     height: 210px;
     overflow: scroll;
   }
+
+  .food-log{
+    height: 1000;
+  }

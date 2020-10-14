@@ -35,7 +35,7 @@ const FoodList = (props) => {
                 Authorization:  `Bearer ${localStorage.token}`
         },
             body: JSON.stringify({
-                id: props.log.id, 
+                id: props.log_id, 
                 category: category, 
                 food_name: list_item.food_name, 
                 calories: e.target.calories.value, 
@@ -46,6 +46,8 @@ const FoodList = (props) => {
         .then(resp => resp.json())
         .then(food_entry => {
             afterPost(food_entry)
+            props.updateLog(food_entry)
+            props.setFoodItems(food_entry.food_items)
             console.log(food_entry)
         
         })

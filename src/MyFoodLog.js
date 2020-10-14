@@ -1,5 +1,5 @@
 
-import React, { useState }  from 'react';
+import React, { Fragment, useState }  from 'react';
 import moment from "moment";
 import Log from './Log'
 import FoodSearchBar from './FoodSearchBar';
@@ -9,34 +9,38 @@ const MyFoodLog = (props) => {
 
     const [log_id, setId] = useState(null)
     // const [date, setDate] = useState(new Date())
-    const [log, setLog] = useState(false)
+    const [log, setLog] = useState(null)
+    const [day_number, setDayNumber] = useState('')
+    const [food_items, setFoodItems] = useState([])
 
     const history = useHistory();
 
+   
     let newLogButton = (e) =>{
         e.preventDefault()
      
-       setLog(true)
-    //     fetch('http://localhost:3000/api/v1/daily_logs', {
-    //         method: 'POST',
-    //         headers: {
-    //         'Content-Type': 'application/json',
-    //         'Accept': 'application/json',
-    //             Authorization:  `Bearer ${localStorage.token}`
-    //     },
-    //         body: JSON.stringify({
-    //             id: log_id
-    //     })
-    // })
-    //     .then(resp => resp.json())
-    //     .then(log => {
-    //         setLog(log)
-    //         console.log(log)
-    //     })
+    //    setLog(true)
+        fetch(`http://localhost:3000/api/v1/daily_logs/${log_id}`, {
+            method: 'GET',
+            headers: {
+                Authorization:  `Bearer ${localStorage.token}`
+        }
+    })
+        .then(resp => resp.json())
+        .then(daily_log => {
+            setFoodItems(daily_log.food_items)
+            setLog(daily_log)
+            setDayNumber(daily_log.day_number)
+            console.log(daily_log)
+        })
+    }
+
+    let updateLog = (e) => {
+        console.log(e)
     }
 
     return(
-    <div>
+    <div className='food-log'>
         <h1>My Food Log</h1>
       
 
@@ -51,12 +55,13 @@ const MyFoodLog = (props) => {
             <input type="submit" ></input>
     </form>
             {log ? 
-                <div>
-                    {/* <h1>{log.day_number.toUpperCase()}</h1><br></br> */}
-                    <FoodSearchBar log={log} log_id={log_id} />
-                </div>
+                <Fragment>
+                    <h1>{day_number.toUpperCase()}</h1><br></br>
+                    <FoodSearchBar log={log} log_id={log_id} updateLog={setLog} setFoodItems={setFoodItems}/>
+                </Fragment>
                 :
                 null}
+                <Log log={log} food_items={food_items}/>
                 {/* <div>
                     <p>Start Log for Today </p>
         
