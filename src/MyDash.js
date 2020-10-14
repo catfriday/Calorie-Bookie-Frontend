@@ -3,6 +3,15 @@ import React from 'react'
 const MyDash = (props) => {
     let  {image, name } = props.currentUser
 
+    // let firstName = () => {
+    //     let stringArray = {name}.split(",")
+    //     return stringArray[0];
+
+    // }
+    
+    console.log(props.currentUser)
+
+
     const foodlog = (e) => {
         console.log(e)
         props.history.push({
