@@ -37,6 +37,8 @@ login = (e) => {
         })
         .then(res => res.json())
         .then(userInfo => {
+        
+          console.log(userInfo)
             localStorage.token = userInfo.token
             localStorage.id = userInfo.id 
             localStorage.name = userInfo.name
@@ -45,14 +47,14 @@ login = (e) => {
             localStorage.bank = userInfo.bank
             localStorage.image = userInfo.image
             localStorage.city = userInfo.city
-            localStorage.loggedIn = true  
+            localStorage.loggedIn = true 
+             userInfo.daily_logs = userInfo.daily_logs 
             // localStorage.user = userInfo
             this.setState({
               currentUser: userInfo,
               loggedIn:true,
               dailyLogs: userInfo.daily_logs
             })  
-            console.log(userInfo)
         })
 }
 
@@ -87,12 +89,14 @@ createProfile = (e) => {
           localStorage.bank = userInfo.bank
           localStorage.image = userInfo.image
           localStorage.city = userInfo.city
-          localStorage.loggedIn = true  
+          localStorage.loggedIn = true 
+        
+          // userInfo.daily_logs
           // localStorage.user = userInfo
           this.setState({
-            // currentUser: userInfo.user,
-            // currentUser: localStorage,
-            // loggedIn:true 
+            currentUser: userInfo.user,
+            currentUser: localStorage,
+            loggedIn:true 
           })  
           console.log(userInfo)
         })
@@ -123,7 +127,8 @@ fetch('http://localhost:3000/api/v1/create_thirty', {
         .then(resp => resp.json())
         .then(logs => {
            this.setState({
-             dailyLogs:logs 
+             dailyLogs:logs
+             
            })
             console.log(logs)
         })
@@ -139,7 +144,8 @@ render(){
       {this.state.loggedIn ? 
           <Fragment>
             <NewNav logout={this.logout}/>
-            {this.state.dailyLogs.length === 0 ? <button onClick={this.createlogs}>Create 30 Day Log</button>
+            <br></br><br></br>
+            {this.state.dailyLogs.length === 0 ? <button onClick={this.createlogs}>Create Daily 30 Log</button>
             : null}
           </Fragment>
           
@@ -162,7 +168,7 @@ render(){
           <MyDash {...routerProps} currentUser={this.state.currentUser}/> }/>
         
         <Route exact path='/my_food_log' render={(routerProps) =>
-          <MyFoodLog {...routerProps} currentUser={this.state.currentUser}/>} />
+          <MyFoodLog {...routerProps} currentUser={this.state.currentUser} logsArray={this.state.dailyLogs}/>} />
        
         {/* <Route path='/my_food_log/:day_number' render={(routerProps) =>
           <FoodSearchBar {...routerProps} /> }/>

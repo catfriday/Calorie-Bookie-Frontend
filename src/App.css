@@ -35,7 +35,7 @@
   }
 
   .active, .nav-menu:hover {
-    /* background-color: red; */
+    /* background-color: rgb(0, 0, 0); */
     border: red;
     /* color: white; */
     color: red;

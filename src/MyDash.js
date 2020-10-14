@@ -9,7 +9,7 @@ const MyDash = (props) => {
 
     // }
     
-    console.log(props.currentUser)
+
 
 
     const foodlog = (e) => {
