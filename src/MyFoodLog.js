@@ -38,7 +38,7 @@ const MyFoodLog = (props) => {
     let updateLog = (e) => {
         console.log(e)
     }
-
+   
     return(
     <div className='food-log'>
        
@@ -68,7 +68,7 @@ const MyFoodLog = (props) => {
                 </Fragment>
                 :
                 null}
-                <Log log={log} food_items={food_items} setFoodItems={setFoodItems}/>
+                <Log log={log} food_items={food_items} setFoodItems={setFoodItems} setLog={setLog}/>
                 </Fragment>
        }
                 

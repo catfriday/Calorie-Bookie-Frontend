@@ -46,6 +46,7 @@ const FoodSearchBar = (props) => {
     const searchBrandSubmit = (e) => {
         e.preventDefault()
         let food = e.target.food_brand.value
+        console.log(food)
         e.target.reset()
 
         fetch( `https://trackapi.nutritionix.com/v2/search/instant?query=${food}`, {
@@ -92,14 +93,14 @@ const FoodSearchBar = (props) => {
 
         {
             food_item ? 
-                <FoodList food={food_item} log_id={props.log_id} updateLog={props.updateLog} setFoodItems={props.setFoodItems}/>
+                <FoodList reset={getFood} setRegFood={regularFoodItem} regfood={reg_food_item} food={food_item} log_id={props.log_id} updateLog={props.updateLog} setFoodItems={props.setFoodItems}/>
                 :
                 null
         }    
 
 {
             reg_food_item ? 
-                <FoodItem food={reg_food_item} log_id={props.log_id} updateLog={props.updateLog} setFoodItems={props.setFoodItems}/>
+                <FoodItem food={reg_food_item} log_id={props.log_id} updateLog={props.updateLog} setFoodItems={props.setFoodItems} reset={getFood} reset2={regularFoodItem}/>
                 :
                 null
         }    

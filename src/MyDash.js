@@ -1,7 +1,7 @@
 import React from 'react'
 
 const MyDash = (props) => {
-    let  {image, name } = props.currentUser
+    let  {image, name, calories } = props.currentUser
 
     // let firstName = () => {
     //     let stringArray = {name}.split(",")
@@ -9,7 +9,7 @@ const MyDash = (props) => {
 
     // }
     
-
+   
 
 
     const foodlog = (e) => {
@@ -25,6 +25,7 @@ const MyDash = (props) => {
 
         <h1>My Dash</h1><br></br><br></br>
         <h3>{`Hello ${name}!`}</h3>
+        <h4>{`Daily Calories: ${calories}`}</h4>
 
         <div>
             <img src={image}></img>

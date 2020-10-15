@@ -35,6 +35,8 @@ const FoodItem = (props) => {
         .then(food_entry => {
             props.updateLog(food_entry)
             props.setFoodItems(food_entry.food_items)
+            props.reset(null)
+            props.reset2(null)
             console.log(food_entry)
         
         })
