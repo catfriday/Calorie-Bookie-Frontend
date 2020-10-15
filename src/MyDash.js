@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { Component, useEffect, useState } from 'react'
 
 const MyDash = (props) => {
     let  {image, name, calories } = props.currentUser
 
+    const [currentUser, setUser] = useState(null)
     // let firstName = () => {
     //     let stringArray = {name}.split(",")
     //     return stringArray[0];
 
     // }
-    
-   
-
-
-    const foodlog = (e) => {
-        console.log(e)
-        props.history.push({
-            pathname:`/my_food_log`
-           })
-    }
+    // useEffect(() => {
+    //     fetch(`http://localhost:3000/api/v1/users/${props.currentUser.id}`,{
+    //         method:'GET',
+    //         headers: {  
+    //             Authorization:`Bearer ${localStorage.token}`
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(user => {
+    //         console.log(user)
+    //         setUser(user)})
+    // }, [])
 
     return(
     
@@ -25,7 +28,11 @@ const MyDash = (props) => {
 
         <h1>My Dash</h1><br></br><br></br>
         <h3>{`Hello ${name}!`}</h3>
-        <h4>{`Daily Calories: ${calories}`}</h4>
+        {props.dailyCalories > 0 ?
+        <h4>{`Daily Calories: ${props.dailyCalories}`}</h4>
+        :
+        <h5>Please Set Daily Calorie Goal In Your Profile</h5>
+    }
 
         <div>
             <img src={image}></img>

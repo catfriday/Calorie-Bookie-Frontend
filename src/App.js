@@ -12,15 +12,46 @@ import NewNav from './NewNav';
 import FoodSearchBar from './FoodSearchBar';
 import FoodItem from './FoodItem';
 import FoodList from './FoodList';
+import MyProfile from './MyProfile';
 
 
 class App extends Component {
 state = {
   currentUser: {},
   loggedIn: false,
-  dailyLogs: []
+  dailyLogs: [],
+  dailyCalories: null
   
 }
+
+acceptGoal = (lbGoal) => {
+    
+  fetch(`http://localhost:3000/api/v1/users/${this.state.currentUser.id}`, {
+      method: 'PATCH',
+      headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+          Authorization:  `Bearer ${localStorage.token}`
+  },
+      body: JSON.stringify({
+          calories:lbGoal
+  })
+})
+  .then(resp => resp.json())
+  .then(user => {    
+      console.log(user.calories)
+      this.setState({
+        dailyCalories: user.calories
+      })
+      // props.dailyCaloriesSet(user.calories)
+  })
+}
+
+// dailyCaloriesSet = (value) =>{
+//   this.setState({
+//     dailyCalories: value
+//   })
+// }
 
 login = (e) => {
   e.preventDefault()
@@ -47,13 +78,15 @@ login = (e) => {
             localStorage.bank = userInfo.bank
             localStorage.image = userInfo.image
             localStorage.city = userInfo.city
-            localStorage.loggedIn = true 
+            localStorage.loggedIn = true
+            localStorage.calories = userInfo.calories
              userInfo.daily_logs = userInfo.daily_logs 
             // localStorage.user = userInfo
             this.setState({
               currentUser: userInfo,
               loggedIn:true,
-              dailyLogs: userInfo.daily_logs
+              dailyLogs: userInfo.daily_logs,
+              dailyCalories: userInfo.calories
             })  
         })
 }
@@ -162,14 +195,17 @@ render(){
             <CreateProfileForm {...routerProps} createProfile={this.createProfile}/>} />
 
         <Route path='/goals_form' render={(routerProps) =>
-          <GoalForm {...routerProps} />} /> 
+          <GoalForm {...routerProps} currentUser={this.state.currentUser} acceptGoal={this.acceptGoal}/>} /> 
 
         <Route path='/my_dash' render={(routerProps) =>
-          <MyDash {...routerProps} currentUser={this.state.currentUser}/> }/>
+          <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories}/> }/>
         
         <Route exact path='/my_food_log' render={(routerProps) =>
           <MyFoodLog {...routerProps} currentUser={this.state.currentUser} logsArray={this.state.dailyLogs}/>} />
        
+       <Route path='/my_profile' render={(routerProps) => 
+        <MyProfile {...routerProps} currentUser={this.state.currentUser} />} />
+
         {/* <Route path='/my_food_log/:day_number' render={(routerProps) =>
           <FoodSearchBar {...routerProps} /> }/>
 

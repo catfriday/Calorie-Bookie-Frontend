@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom';
 const MyFoodLog = (props) => {
 
     const [log_id, setId] = useState(null)
-    // const [date, setDate] = useState(new Date())
     const [log, setLog] = useState(null)
     const [day_number, setDayNumber] = useState('')
     const [food_items, setFoodItems] = useState([])
@@ -56,7 +55,7 @@ const MyFoodLog = (props) => {
         <select onChange={(e) => setId(e.target.value)}>
             <option disabled selected value> </option>
                 {props.logsArray.map(log => {
-                    return  <option value={log.id} data-value={log.day_number} >{`${log.day_number}`}</option>
+                    return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >{`${log.day_number}`}</option>
                     })}  
         </select>
             <input type="submit" ></input>
