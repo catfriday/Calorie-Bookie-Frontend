@@ -50,7 +50,11 @@ acceptGoal = (lbGoal) => {
   })
 }
 
-
+setCurrentBet = (bet) => {
+ this.setState({
+   currentBet: bet
+ })
+}
 
 login = (e) => {
   e.preventDefault()
@@ -212,7 +216,7 @@ render(){
           <MyBetDash currentUser={this.state.currentUser} bet={this.state.currentBet}/> }/>
 
           <Route path='/bet_form' render={(routerProps) =>
-          <BetForm />} />
+          <BetForm currentUser={this.state.currentUser} setCurrentBet={this.setCurrentBet}/>} />
 
         {/* <Route path='/my_food_log/:day_number' render={(routerProps) =>
           <FoodSearchBar {...routerProps} /> }/>
