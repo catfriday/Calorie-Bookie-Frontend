@@ -43,15 +43,11 @@ acceptGoal = (lbGoal) => {
       this.setState({
         dailyCalories: user.calories
       })
-      // props.dailyCaloriesSet(user.calories)
+     
   })
 }
 
-// dailyCaloriesSet = (value) =>{
-//   this.setState({
-//     dailyCalories: value
-//   })
-// }
+
 
 login = (e) => {
   e.preventDefault()
@@ -190,7 +186,7 @@ render(){
            <LoginSignUp {...routerProps} 
               login={this.login} 
               currentUser={this.state.currentUser}/>} />
-
+    
         <Route path='/create_profile' render={(routerProps) => 
             <CreateProfileForm {...routerProps} createProfile={this.createProfile}/>} />
 

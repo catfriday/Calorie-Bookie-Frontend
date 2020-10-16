@@ -1,7 +1,11 @@
 import React, { Component, useEffect, useState } from 'react'
+import { Line, Circle } from 'rc-progress';
+import ProgressBar from "./ProgressBar";
 
 const MyDash = (props) => {
     let  {image, name, calories } = props.currentUser
+
+    
 
     const [currentUser, setUser] = useState(null)
     // let firstName = () => {
@@ -37,7 +41,8 @@ const MyDash = (props) => {
         <div>
             <img src={image}></img>
         </div>
-
+        
+    </div>
 
     </div>)
 }
