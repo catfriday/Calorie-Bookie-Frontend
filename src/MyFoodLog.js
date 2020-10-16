@@ -11,6 +11,7 @@ const MyFoodLog = (props) => {
     const [log, setLog] = useState(null)
     const [day_number, setDayNumber] = useState('')
     const [food_items, setFoodItems] = useState([])
+    const [date, setDate] = useState('')
 
     const history = useHistory();
 
@@ -30,6 +31,7 @@ const MyFoodLog = (props) => {
             setFoodItems(daily_log.food_items)
             setLog(daily_log)
             setDayNumber(daily_log.day_number)
+            setDate(new Date(daily_log.date).toDateString())
             console.log(daily_log)
         })
     }
@@ -37,6 +39,8 @@ const MyFoodLog = (props) => {
     let updateLog = (e) => {
         console.log(e)
     }
+
+    // new Date(daily_log.date).toDateString()
    
     return(
     <div className='food-log'>
@@ -55,19 +59,21 @@ const MyFoodLog = (props) => {
         <select onChange={(e) => setId(e.target.value)}>
             <option disabled selected value> </option>
                 {props.logsArray.map(log => {
-                    return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >{`${log.day_number}`}</option>
+                    return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >{`${log.day_number}, ${new Date(log.date).toDateString()}`}</option>
                     })}  
         </select>
             <input type="submit" ></input>
      </form>
             {log ? 
                 <Fragment>
-                    <h1>{day_number.toUpperCase()}</h1><br></br>
-                    <FoodSearchBar log={log} log_id={log_id} updateLog={setLog} setFoodItems={setFoodItems}/>
+                    <h1>{day_number.toUpperCase()}
+                    <h4>{date}</h4></h1><br></br>
+                    
+                    <FoodSearchBar log={log} log_id={log_id} updateLog={setLog} setFoodItems={setFoodItems} />
                 </Fragment>
                 :
                 null}
-                <Log log={log} food_items={food_items} setFoodItems={setFoodItems} setLog={setLog}/>
+                <Log log={log} food_items={food_items} setFoodItems={setFoodItems} setLog={setLog} date={date}/>
                 </Fragment>
        }
                 

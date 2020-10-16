@@ -42,7 +42,7 @@ const MyDash = (props) => {
             <img src={image}></img>
         </div>
         
-    </div>
+   
 
     </div>)
 }

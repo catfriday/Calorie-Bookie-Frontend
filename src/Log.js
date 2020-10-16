@@ -42,8 +42,9 @@ let getDate = () => {
 
         {props.log ? 
         <Fragment>
-            <h3>{`${getDate()} `}</h3>
+            {/* <h3>{`${getDate()} `}</h3> */}
         <h3>{`Total Calories ${props.log.calories}`}</h3>
+        
         </Fragment>
     :
     null
