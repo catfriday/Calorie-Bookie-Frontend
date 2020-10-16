@@ -26,6 +26,20 @@ const MyDash = (props) => {
     //         setUser(user)})
     // }, [])
 
+    // useEffect(() => {
+    //     fetch(`http://localhost:3000/api/v1/bets/${props.bet.id}`,{
+    //         method:'GET',
+    //         headers: {  
+    //             Authorization:`Bearer ${localStorage.token}`
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(bet => {
+    //         console.log(bet)
+            
+    //         })
+    // }, [])
+
     return(
     
     <div>

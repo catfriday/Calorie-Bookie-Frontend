@@ -13,6 +13,8 @@ import FoodSearchBar from './FoodSearchBar';
 import FoodItem from './FoodItem';
 import FoodList from './FoodList';
 import MyProfile from './MyProfile';
+import MyBetDash from './MyBetDash';
+import BetForm from './BetForm';
 
 
 class App extends Component {
@@ -20,7 +22,8 @@ state = {
   currentUser: {},
   loggedIn: false,
   dailyLogs: [],
-  dailyCalories: null
+  dailyCalories: null,
+  currentBet: []
   
 }
 
@@ -84,7 +87,8 @@ login = (e) => {
               currentUser: userInfo,
               loggedIn:true,
               dailyLogs: userInfo.daily_logs,
-              dailyCalories: userInfo.calories
+              dailyCalories: userInfo.calories,
+              currentBet: userInfo.bet 
             })  
         })
 }
@@ -174,7 +178,7 @@ render(){
       {/* this.state.currentUser.token */}
       {this.state.loggedIn ? 
           <Fragment>
-            <NewNav logout={this.logout}/>
+            <NewNav logout={this.logout} bet={this.state.currentBet}/>
             <br></br><br></br>
             {this.state.dailyLogs.length === 0 ? <button onClick={this.createlogs}>Create Daily 30 Log</button>
             : null}
@@ -196,13 +200,19 @@ render(){
           <GoalForm {...routerProps} currentUser={this.state.currentUser} acceptGoal={this.acceptGoal}/>} /> 
 
         <Route path='/my_dash' render={(routerProps) =>
-          <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories}/> }/>
+          <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories} bet={this.state.currentBet}/> }/>
         
         <Route exact path='/my_food_log' render={(routerProps) =>
           <MyFoodLog {...routerProps} currentUser={this.state.currentUser} logsArray={this.state.dailyLogs}/>} />
        
        <Route path='/my_profile' render={(routerProps) => 
         <MyProfile {...routerProps} currentUser={this.state.currentUser} />} />
+
+        <Route path='/my_bet_dash' render={(routerProps) =>
+          <MyBetDash currentUser={this.state.currentUser} bet={this.state.currentBet}/> }/>
+
+          <Route path='/bet_form' render={(routerProps) =>
+          <BetForm />} />
 
         {/* <Route path='/my_food_log/:day_number' render={(routerProps) =>
           <FoodSearchBar {...routerProps} /> }/>
