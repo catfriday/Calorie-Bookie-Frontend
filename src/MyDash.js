@@ -41,8 +41,10 @@ const MyDash = (props) => {
         <div>
             <img src={image}></img>
         </div>
-        
-   
+
+        <label>
+        <progress id="file" max="100" value={Math.round(props.currentUser.monthly_progress * 100)}> </progress> {`${Math.round(props.currentUser.monthly_progress * 100)}%`}
+        </label>
 
     </div>)
 }

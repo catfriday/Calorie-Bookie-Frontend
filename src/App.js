@@ -77,6 +77,8 @@ login = (e) => {
             localStorage.loggedIn = true
             localStorage.calories = userInfo.calories
              userInfo.daily_logs = userInfo.daily_logs 
+             localStorage.monthly_progress = userInfo.monthly_progress
+             
             // localStorage.user = userInfo
             this.setState({
               currentUser: userInfo,
