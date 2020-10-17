@@ -19,7 +19,7 @@ import BetForm from './BetForm';
 
 class App extends Component {
 state = {
-  currentUser: {},
+  currentUser: localStorage,
   loggedIn: false,
   dailyLogs: [],
   dailyCalories: null,

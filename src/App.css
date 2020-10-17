@@ -86,4 +86,19 @@
     
   }
 
+  .card{
+    text-align: center;
+    border: black solid 1px;
+    padding: 1rem;
+    width: 50rem;
+    height: 20rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px black;
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 17px;
+    border-radius: 5px;
+    
+    /* justify-self: center; */
+  }
   

@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useState } from 'react'
 import { Line, Circle } from 'rc-progress';
 import ProgressBar from "./ProgressBar";
+import './App.css';
 
 const MyDash = (props) => {
     let  {image, name, calories } = props.currentUser
@@ -42,8 +43,8 @@ const MyDash = (props) => {
 
     return(
     
-    <div>
-
+    <div >
+       
         <h1>My Dash</h1><br></br><br></br>
         <h3>{`Hello ${name}!`}</h3>
         {props.dailyCalories > 0 ?
@@ -52,13 +53,13 @@ const MyDash = (props) => {
         <h5>Please Set Daily Calorie Goal In Your Profile</h5>
     }
 
-        <div>
-            <img src={image}></img>
-        </div>
+        <div className='card'>
+            <img src={image} height="200px" width="200px"></img>
 
         <label>
         <progress id="file" max="100" value={Math.round(props.currentUser.monthly_progress * 100)}> </progress> {`${Math.round(props.currentUser.monthly_progress * 100)}%`}
         </label>
+        </div>
 
     </div>)
 }
