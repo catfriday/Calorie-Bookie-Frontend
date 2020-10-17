@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 
 const Log = (props) => {
 
@@ -27,10 +27,22 @@ const deleteItem = (item) =>{
         .then(log => {
             props.setLog(log)
         })
-
-// console.log(item)
-
 }
+
+
+// useEffect(() => {
+    
+//     fetch(`http://localhost:3000/api/v1/users/${props.currentUser.id}`,{
+//         method:'GET',
+//         headers: {  
+//             Authorization:`Bearer ${localStorage.token}`
+//         }
+//     })
+//     .then(res => res.json())
+//     .then(user => {
+//         console.log(user)
+//         localStorage.monthly_progress = user.monthly_progress})
+// }, [])
 
 let getDate = () => {
     let d= new Date(props.log.date)

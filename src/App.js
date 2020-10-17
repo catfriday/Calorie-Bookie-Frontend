@@ -20,9 +20,9 @@ import BetForm from './BetForm';
 class App extends Component {
 state = {
   currentUser: localStorage,
-  loggedIn: false,
+  loggedIn: localStorage.loggedIn,
   dailyLogs: [],
-  dailyCalories: null,
+  dailyCalories: localStorage.calories,
   currentBet: []
   
 }
@@ -43,9 +43,10 @@ acceptGoal = (lbGoal) => {
   .then(resp => resp.json())
   .then(user => {    
       console.log(user.calories)
-      this.setState({
-        dailyCalories: user.calories
-      })
+      localStorage.calories = user.calories
+      // this.setState({
+      //   dailyCalories: user.calories
+      // })
      
   })
 }
@@ -89,9 +90,9 @@ login = (e) => {
             // localStorage.user = userInfo
             this.setState({
               currentUser: userInfo,
-              loggedIn:true,
+              loggedIn:localStorage.loggedIn,
               dailyLogs: userInfo.daily_logs,
-              dailyCalories: userInfo.calories,
+              dailyCalories: localStorage.calories,
               currentBet: userInfo.bet 
             })  
         })
@@ -112,7 +113,7 @@ createProfile = (e) => {
                 email: e.target.email.value,
                 password: e.target.password.value,
                 weight: e.target.weight.value,
-                bank: e.target.bank.value,
+                bank: 0,
                 image: e.target.image.value,
                 city: e.target.city.value
               }
@@ -129,13 +130,19 @@ createProfile = (e) => {
           localStorage.image = userInfo.image
           localStorage.city = userInfo.city
           localStorage.loggedIn = true 
+          localStorage.calories = userInfo.calories
+          userInfo.daily_logs = userInfo.daily_logs 
+          localStorage.monthly_progress = userInfo.monthly_progress
         
           // userInfo.daily_logs
           // localStorage.user = userInfo
           this.setState({
             currentUser: userInfo.user,
             currentUser: localStorage,
-            loggedIn:true 
+            loggedIn:true,
+              // dailyLogs: userInfo.daily_logs,
+              // dailyCalories: userInfo.calories,
+              currentBet: [] 
           })  
           console.log(userInfo)
         })
@@ -184,8 +191,8 @@ render(){
           <Fragment>
             <NewNav logout={this.logout} bet={this.state.currentBet}/>
             <br></br><br></br>
-            {this.state.dailyLogs.length === 0 ? <button onClick={this.createlogs}>Create Daily 30 Log</button>
-            : null}
+            {/* {this.state.dailyLogs.length === 0 ? <button onClick={this.createlogs}>Create Daily 30 Log</button>
+            : null} */}
           </Fragment>
           
            : null } 
@@ -210,13 +217,13 @@ render(){
           <MyFoodLog {...routerProps} currentUser={this.state.currentUser} logsArray={this.state.dailyLogs}/>} />
        
        <Route path='/my_profile' render={(routerProps) => 
-        <MyProfile {...routerProps} currentUser={this.state.currentUser} />} />
+        <MyProfile {...routerProps} currentUser={this.state.currentUser} createlogs={this.createlogs}/>} />
 
         <Route path='/my_bet_dash' render={(routerProps) =>
           <MyBetDash currentUser={this.state.currentUser} bet={this.state.currentBet}/> }/>
 
           <Route path='/bet_form' render={(routerProps) =>
-          <BetForm currentUser={this.state.currentUser} setCurrentBet={this.setCurrentBet}/>} />
+          <BetForm currentUser={this.state.currentUser} setCurrentBet={this.setCurrentBet} acceptGoal={this.acceptGoal} createLogs={this.createlogs}/>} />
 
         {/* <Route path='/my_food_log/:day_number' render={(routerProps) =>
           <FoodSearchBar {...routerProps} /> }/>

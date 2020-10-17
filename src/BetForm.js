@@ -1,17 +1,21 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom';
+import GoalForm from './GoalForm';
+
 
 const BetForm = (props) =>{
 
-    const [betAmount, setAmount] = useState(props.currentUser.bank)
+    const [betAmount, setAmount] = useState(0)
+    const [goalSet, isSet] = useState(null)
     const history = useHistory()
 
 
 let handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(e.target.amount.value)
+    console.log(e.target.amount.value)
     // console.log(props.currentUser)
-    props.setCurrentBet(e.target.amount.value)
+    setAmount(e.target.amount.value)
+
 
     fetch('http://localhost:3000/api/v1/bets', {
             method: 'POST',
@@ -22,33 +26,39 @@ let handleSubmit = (e) => {
         },
             body: JSON.stringify({
                 user_id: props.currentUser.id,
-                amount: betAmount
+                amount: e.target.amount.value
             
         })
     })
         .then(resp => resp.json())
         .then(bet => {
-            props.setCurrentBet(bet)
+           props.setCurrentBet(bet)
             console.log(bet)
         }
         )
-
-
 }
 
 
-    return(<div>
-        <h1> Start Your Bet</h1>
 
+
+    return(<div>
+        <h1> Start Your Bet and Your 30 Day Log</h1>
+
+        
+        {goalSet ? 
         <form onSubmit={(e) =>{
             handleSubmit(e)
-            history.push('/my_bet_dash')
+            history.push('/my_dash')
+            props.createLogs()
             }}>
             <label>Enter Amount</label>
-            <input name="amount" type="number" placeholder='Bet Amount' value={betAmount}></input><br></br>
+            <input name="amount" type="number" placeholder='Bet Amount'></input><br></br>
             <input type="submit"/>
         </form>
+        :
+        <GoalForm isSet={isSet} acceptGoal={props.acceptGoal}/>
 
+            }
     </div>)
 }
 

@@ -1,5 +1,5 @@
 
-import React, { Fragment, useState }  from 'react';
+import React, { Fragment, useState, useEffect }  from 'react';
 import moment from "moment";
 import Log from './Log'
 import FoodSearchBar from './FoodSearchBar';
@@ -12,6 +12,7 @@ const MyFoodLog = (props) => {
     const [day_number, setDayNumber] = useState('')
     const [food_items, setFoodItems] = useState([])
     const [date, setDate] = useState('')
+    const [logs, setLogs] = useState(props.logsArray)
 
     const history = useHistory();
 
@@ -36,16 +37,37 @@ const MyFoodLog = (props) => {
         })
     }
 
+    useEffect(() => {
+        // window.location.reload()
+        // window.onload = function() {
+        //     if(!window.location.hash) {
+        //         window.location = window.location + '#loaded';
+        //         window.location.reload();
+        //     }
+        // }
+        fetch(`http://localhost:3000/api/v1/users/${props.currentUser.id}`,{
+            method:'GET',
+            headers: {  
+                Authorization:`Bearer ${localStorage.token}`
+            }
+        })
+        .then(res => res.json())
+        .then(user => {
+            
+            setLogs(user.daily_logs)
+            console.log(user.daily_logs)
+            })
+    }, [])
+
     let updateLog = (e) => {
         console.log(e)
     }
 
-    // new Date(daily_log.date).toDateString()
    
     return(
     <div className='food-log'>
        
-       {props.logsArray.length === 0 ?
+       {props.currentUser.daily_logs.length === 0 ?
        <Fragment>
 
            <br></br>

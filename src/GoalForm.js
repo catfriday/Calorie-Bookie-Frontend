@@ -10,7 +10,7 @@ const GoalForm = (props) => {
 
 let selectedOption = (e) => {
     e.preventDefault()
- 
+    
     if (getGoal === '1-pound')
         setgoal(1300)
     if (getGoal === '1.5-pound')
@@ -65,9 +65,23 @@ let selectedOption = (e) => {
         
         <div>
 
-         {lbGoal === 1300 ? <div><h1>1300</h1><button onClick={() => props.acceptGoal(lbGoal)}>Accept Goal</button></div>
-         : lbGoal === 1250 ?  <div><h1>1250</h1><button onClick={() => props.acceptGoal(lbGoal)}>Accept Goal</button></div>
-          : lbGoal === 1200 ? <div><h1>1200</h1><button onClick={() => props.acceptGoal(lbGoal)}>Accept Goal</button></div>
+         {lbGoal === 1300 ? <div><h1>1300</h1><button onClick={() => {
+         props.isSet(true)
+         props.acceptGoal(lbGoal)
+        }
+        }>Accept Goal</button></div>
+
+         : lbGoal === 1250 ?  <div><h1>1250</h1><button onClick={() =>{
+            props.isSet(true)
+            props.acceptGoal(lbGoal)
+        }
+        }>Accept Goal</button></div>
+
+          : lbGoal === 1200 ? <div><h1>1200</h1><button onClick={() =>{
+            props.isSet(true)
+            props.acceptGoal(lbGoal)
+        }    
+        }>Accept Goal</button></div>
           : null
          
           }
