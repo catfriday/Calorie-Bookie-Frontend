@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link }  from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 const LoginSignUp = (props) => {
     // console.log(props)
+
+    const history = useHistory();
 
     const handleClick = () =>{
         props.history.push({
@@ -12,7 +15,7 @@ const LoginSignUp = (props) => {
     return(
         <div>
             <div>
-                <Link to='/create_profile'>Create Profile</Link>
+                <h2 className='sign-up-h2' onClick={() => history.push('/create_profile')}>Create Profile</h2>
                 <h3>or</h3>
                 <form onSubmit={(e) => {
                      props.login(e)
@@ -20,8 +23,8 @@ const LoginSignUp = (props) => {
                 }
                 }>
                     <label>Login</label><br></br>
-                    <input name="email" type="text" placeholder='email'></input>
-                    <input name="password" type="text" placeholder='password'></input>
+                    <input name="email" type="text" placeholder='email'></input><br></br>
+                    <input name="password" type="text" placeholder='password'></input><br></br>
                     <input type="submit"/>
                 </form>
             </div>
@@ -33,3 +36,4 @@ const LoginSignUp = (props) => {
 }
 
 export default LoginSignUp
+

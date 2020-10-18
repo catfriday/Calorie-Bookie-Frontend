@@ -4,7 +4,12 @@
     position: center;
     position: relative;
     height: 50px;
+    
 }
+
+/* body{
+  background-image: url('./frontend/frontend/public/Untitled design (1).png');
+} */
 
 .topnav {
   float: none;
@@ -23,12 +28,12 @@
   .nav-menu {
     /* justify-self: center; */
     float: center;
-    color: white;
+    color: black;
     text-align: center;
     padding: 10px 40px;
     width: 17%;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 25px;
     font-weight: bolder;
     border: black;
     cursor: pointer;
@@ -48,7 +53,8 @@
 
   .nav-menu{
     /* background-color: #ff6cc6; */
-    background-color: black;
+    /* background-color: black; */
+    background-color: transparent;
     
   }
 
@@ -65,6 +71,15 @@
   li:hover {
     background-color:white;
     color: black;
+  }
+
+  .sign-up-h2:hover{
+    color: red;
+    cursor: pointer;
+  }
+
+  .sign-up-h2{
+    color:black;
   }
 
   div.search-tile {
@@ -97,8 +112,56 @@
     box-shadow: 3px 4px black;
     font-family: Arial, Helvetica, sans-serif; 
     font-size: 17px;
-    border-radius: 5px;
+    border-radius: 7px;
     
     /* justify-self: center; */
   }
-  
+   .card-image{
+     /* float: left; */
+     /* top:495px;
+     position:absolute; */
+     border-radius: 7px;
+   }
+
+   .progress-bar{
+    top:25px;
+    position: relative;
+    /* float: right; */
+    left:90px;
+   }
+
+   .image-div{
+      float: left;
+      position:absolute; 
+      /* top:295px; */
+      font-weight: bold;
+      font-size: 16px;
+      right:1100px;
+   }
+
+   .calories-div{
+    position: relative;
+    left:275px;
+    font-weight: bold;
+    border: black solid 1px;
+    width: 25rem;
+    height: 8rem;
+    text-align: center;
+    top:40px;
+    box-shadow: 3px 4px red;
+    
+    font-family: Arial, Helvetica, sans-serif;
+   }
+
+   /* justify-content: center; */
+   #logo{
+    position:relative;
+    /* top:px;  */
+    width:225px; 
+    height:225px
+  }
+
+  progress::-webkit-progress-bar {
+    background-color: yellow;
+    border-radius: 7px;
+  }

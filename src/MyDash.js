@@ -52,25 +52,38 @@ const MyDash = (props) => {
     
     <div >
        
-        <h1>My Dash</h1><br></br><br></br>
-        <h3>{`Hello ${name}!`}</h3>
-        {props.currentUser.calories > 0 ?
-        <h4>{`Daily Calories: ${props.currentUser.calories}`}</h4>
-        :
-        <h5>Please Place Your Bet on Your Bet Dash</h5>
-    }
+            <h1>My Dash</h1><br></br><br></br>
+                
+        
 
-        <div className='card'>
-            <img src={image} height="200px" width="200px"></img>
+            <div className='card'>
+                <div className='image-div'>
+                <p>{`Hello ${name}!`}</p>
+                    <img className='card-image' src={image} height="200px" width="200px"></img>      
+                </div>   
 
-    {props.monthly_progress === "null" ?
-    null
-    :
-        <label>
-        <progress id="file" max="100" value={Math.round(props.monthly_progress * 100)}> </progress> {`${Math.round(props.monthly_progress * 100)}%`}
-        </label>
-
-    }
+                {props.currentUser.calories > 0 ?
+                        <div className='calories-div'>
+                            <p>{`Daily Calories: ${props.currentUser.calories}`}</p>
+                                {props.currentUser.calories - props.todays_calories > 0 ?
+                                <p>{`Calories Remaining for Today: ${props.currentUser.calories - props.todays_calories}`}</p>
+                                :
+                                <p>{`Calories Exceeded Today: ${props.currentUser.calories - props.todays_calories}`}</p>
+                            }
+                        </div>
+                            :
+                            <h5>Please Place Your Bet on Your Bet Dash</h5>
+                }
+                    {props.monthly_progress === "null" ?
+                    null
+                    :
+                        <div className='progress-bar'>
+                            <p>Monthly Progress</p>
+                            <label>
+                            <progress id="file" max="100" value={Math.round(props.monthly_progress * 100)}> </progress> {`${Math.round(props.monthly_progress * 100)}%`}
+                            </label>
+                        </div>
+                    }
             </div>
 
     </div>)

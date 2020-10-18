@@ -24,7 +24,8 @@ state = {
   dailyLogs: [],
   dailyCalories: localStorage.calories,
   currentBet: [],
-  monthly_progress: 0
+  monthly_progress: 0,
+  todays_calories: 0
   
 }
 
@@ -95,7 +96,8 @@ login = (e) => {
               dailyLogs: userInfo.daily_logs,
               dailyCalories: localStorage.calories,
               currentBet: userInfo.bet,
-              monthly_progress: userInfo.logged 
+              monthly_progress: userInfo.logged,
+              todays_calories: userInfo.todays_calories 
             })  
         })
 }
@@ -155,6 +157,7 @@ logout = () =>{
   this.setState({
     loggedIn: false
   })
+  window.location.reload()
   console.log(localStorage)
 }
 
@@ -213,7 +216,7 @@ render(){
           <GoalForm {...routerProps} currentUser={this.state.currentUser} acceptGoal={this.acceptGoal}/>} /> 
 
         <Route path='/my_dash' render={(routerProps) =>
-          <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories} bet={this.state.currentBet} monthly_progress={this.state.monthly_progress}/> }/>
+          <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories} bet={this.state.currentBet} monthly_progress={this.state.monthly_progress} todays_calories={this.state.todays_calories}/> }/>
         
         <Route exact path='/my_food_log' render={(routerProps) =>
           <MyFoodLog {...routerProps} currentUser={this.state.currentUser} logsArray={this.state.dailyLogs}/>} />
