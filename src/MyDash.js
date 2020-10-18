@@ -59,7 +59,7 @@ const MyDash = (props) => {
             <div className='card'>
                 <div className='image-div'>
                 <p>{`Hello ${name}!`}</p>
-                    <img className='card-image' src={image} height="200px" width="200px"></img>      
+                    <img className='card-image' src={image} height="190px" width="190px"></img>      
                 </div>   
 
                 {props.currentUser.calories > 0 ?

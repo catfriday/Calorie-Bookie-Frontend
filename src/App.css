@@ -103,13 +103,14 @@
 
   .card{
     text-align: center;
-    border: black solid 1px;
+    border: white solid 2px;
     padding: 1rem;
     width: 50rem;
     height: 20rem;
     display: inline-grid;
     margin: 1rem 2rem;
-    box-shadow: 3px 4px black;
+    /* box-shadow: 3px 4px black; */
+    box-shadow: 5px 10px 18px black;
     font-family: Arial, Helvetica, sans-serif; 
     font-size: 17px;
     border-radius: 7px;
@@ -143,14 +144,16 @@
     position: relative;
     left:275px;
     font-weight: bold;
-    border: black solid 1px;
+    border: white solid 1px;
     width: 25rem;
     height: 8rem;
     text-align: center;
     top:40px;
-    box-shadow: 3px 4px red;
+    /* box-shadow: 3px 4px red; */
+    box-shadow: 5px 10px 8px #888888;
     
     font-family: Arial, Helvetica, sans-serif;
+    border-radius: 7px;
    }
 
    /* justify-content: center; */
