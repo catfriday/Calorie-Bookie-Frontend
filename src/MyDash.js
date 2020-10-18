@@ -12,12 +12,12 @@ const MyDash = (props) => {
 
     useEffect(() => {
         // window.location.reload()
-        // window.onload = function() {
-        //     if(!window.location.hash) {
-        //         window.location = window.location + '#loaded';
-        //         window.location.reload();
-        //     }
-        // }
+        window.onload = function() {
+            if(!window.location.hash) {
+                window.location = window.location + '#loaded';
+                window.location.reload();
+            }
+        }
         fetch(`http://localhost:3000/api/v1/users/${props.currentUser.id}`,{
             method:'GET',
             headers: {  
@@ -28,7 +28,8 @@ const MyDash = (props) => {
         .then(user => {
             // localStorage.monthly_progress = user.logged
             console.log(user)
-            setUser(user)})
+            setUser(user)
+        })
     }, [])
 
     // useEffect(() => {
