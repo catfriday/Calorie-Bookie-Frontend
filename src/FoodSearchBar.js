@@ -100,7 +100,7 @@ const FoodSearchBar = (props) => {
 
 {
             reg_food_item ? 
-                <FoodItem food={reg_food_item} log_id={props.log_id} updateLog={props.updateLog} setFoodItems={props.setFoodItems} reset={getFood} reset2={regularFoodItem}/>
+                <FoodItem food={reg_food_item} log_id={props.log_id} updateLog={props.updateLog} setFoodItems={props.setFoodItems} reset={getFood} reset2={regularFoodItem} currentUser={props.currentUser}/>
                 :
                 null
         }    

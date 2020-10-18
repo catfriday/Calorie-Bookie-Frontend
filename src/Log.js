@@ -30,19 +30,19 @@ const deleteItem = (item) =>{
 }
 
 
-// useEffect(() => {
+useEffect(() => {
     
-//     fetch(`http://localhost:3000/api/v1/users/${props.currentUser.id}`,{
-//         method:'GET',
-//         headers: {  
-//             Authorization:`Bearer ${localStorage.token}`
-//         }
-//     })
-//     .then(res => res.json())
-//     .then(user => {
-//         console.log(user)
-//         localStorage.monthly_progress = user.monthly_progress})
-// }, [])
+    fetch(`http://localhost:3000/api/v1/users/${props.currentUser.id}`,{
+        method:'GET',
+        headers: {  
+            Authorization:`Bearer ${localStorage.token}`
+        }
+    })
+    .then(res => res.json())
+    .then(user => {
+        console.log(user)
+        localStorage.monthly_progress = parseFloat(user.logged) })
+}, [])
 
 let getDate = () => {
     let d= new Date(props.log.date)

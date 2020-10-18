@@ -67,7 +67,7 @@ const MyFoodLog = (props) => {
     return(
     <div className='food-log'>
        
-       {props.currentUser.daily_logs.length === 0 ?
+       {props.logsArray.length === 0 ?
        <Fragment>
 
            <br></br>
@@ -91,11 +91,11 @@ const MyFoodLog = (props) => {
                     <h1>{day_number.toUpperCase()}
                     <h4>{date}</h4></h1><br></br>
                     
-                    <FoodSearchBar log={log} log_id={log_id} updateLog={setLog} setFoodItems={setFoodItems} />
+                    <FoodSearchBar log={log} log_id={log_id} updateLog={setLog} setFoodItems={setFoodItems} currentUser={props.currentUser}/>
                 </Fragment>
                 :
                 null}
-                <Log log={log} food_items={food_items} setFoodItems={setFoodItems} setLog={setLog} date={date}/>
+                <Log log={log} food_items={food_items} setFoodItems={setFoodItems} setLog={setLog} date={date} currentUser={props.currentUser}/>
                 </Fragment>
        }
                 

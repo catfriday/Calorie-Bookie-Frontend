@@ -23,6 +23,7 @@ const FoodItem = (props) => {
                 Authorization:  `Bearer ${localStorage.token}`
         },
             body: JSON.stringify({
+                user_id: props.currentUser.id,
                 id: props.log_id, 
                 category: category, 
                 food_name: props.food.food_name, 

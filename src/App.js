@@ -23,7 +23,8 @@ state = {
   loggedIn: localStorage.loggedIn,
   dailyLogs: [],
   dailyCalories: localStorage.calories,
-  currentBet: []
+  currentBet: [],
+  monthly_progress: 0
   
 }
 
@@ -85,7 +86,7 @@ login = (e) => {
             localStorage.loggedIn = true
             localStorage.calories = userInfo.calories
              userInfo.daily_logs = userInfo.daily_logs 
-             localStorage.monthly_progress = userInfo.monthly_progress
+             localStorage.monthly_progress = parseFloat(userInfo.monthly_progress)
              
             // localStorage.user = userInfo
             this.setState({
@@ -93,7 +94,8 @@ login = (e) => {
               loggedIn:localStorage.loggedIn,
               dailyLogs: userInfo.daily_logs,
               dailyCalories: localStorage.calories,
-              currentBet: userInfo.bet 
+              currentBet: userInfo.bet,
+              monthly_progress: userInfo.logged 
             })  
         })
 }
@@ -137,10 +139,10 @@ createProfile = (e) => {
           // userInfo.daily_logs
           // localStorage.user = userInfo
           this.setState({
-            currentUser: userInfo.user,
+            currentUser: userInfo,
             currentUser: localStorage,
             loggedIn:true,
-              // dailyLogs: userInfo.daily_logs,
+              dailyLogs: [],
               // dailyCalories: userInfo.calories,
               currentBet: [] 
           })  
@@ -211,7 +213,7 @@ render(){
           <GoalForm {...routerProps} currentUser={this.state.currentUser} acceptGoal={this.acceptGoal}/>} /> 
 
         <Route path='/my_dash' render={(routerProps) =>
-          <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories} bet={this.state.currentBet}/> }/>
+          <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories} bet={this.state.currentBet} monthly_progress={this.state.monthly_progress}/> }/>
         
         <Route exact path='/my_food_log' render={(routerProps) =>
           <MyFoodLog {...routerProps} currentUser={this.state.currentUser} logsArray={this.state.dailyLogs}/>} />

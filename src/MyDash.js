@@ -7,6 +7,7 @@ const MyDash = (props) => {
     let  {image, name, calories } = props.currentUser 
 
     const [currentUser, setUser] = useState({})
+    const [monthly_progress, setProgress] = useState(props.currentUser.monthly_progress)
     
 
 
@@ -29,6 +30,7 @@ const MyDash = (props) => {
             // localStorage.monthly_progress = user.logged
             console.log(user)
             setUser(user)
+            // setProgress(user.logged)
         })
     }, [])
 
@@ -61,11 +63,11 @@ const MyDash = (props) => {
         <div className='card'>
             <img src={image} height="200px" width="200px"></img>
 
-    {props.currentUser.monthly_progress === "null" ?
+    {props.monthly_progress === "null" ?
     null
     :
         <label>
-        <progress id="file" max="100" value={Math.round(props.currentUser.monthly_progress * 100)}> </progress> {`${Math.round(props.currentUser.monthly_progress * 100)}%`}
+        <progress id="file" max="100" value={Math.round(props.monthly_progress * 100)}> </progress> {`${Math.round(props.monthly_progress * 100)}%`}
         </label>
 
     }
