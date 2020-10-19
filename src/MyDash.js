@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from 'react'
 import { Line, Circle } from 'rc-progress';
 import ProgressBar from "./ProgressBar";
 import './App.css';
+import { Progress } from 'semantic-ui-react'
 
 const MyDash = (props) => {
     let  {image, name, calories } = props.currentUser 
