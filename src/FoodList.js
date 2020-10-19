@@ -72,7 +72,7 @@ const FoodList = (props) => {
                 <h2>{props.food.brand_name}</h2>
                 <li onClick={() => liClick(foodObj)}>
                     <div>{foodObj.brand_name_item_name}</div>
-                    <p>{`${foodObj.serving_qty}, ${foodObj.serving_unit}, ${foodObj.nf_calories} Calories`}</p>
+                    <p>{`${foodObj.serving_qty} ${foodObj.serving_unit}, ${foodObj.nf_calories} Calories`}</p>
                 </li>
                 </Fragment>
             )

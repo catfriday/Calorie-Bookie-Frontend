@@ -24,7 +24,7 @@ state = {
   dailyLogs: [],
   dailyCalories: localStorage.calories,
   currentBet: [],
-  monthly_progress: localStorage.monthly_progress,
+  monthly_progress: 0,
   todays_calories: 0
   
 }
@@ -50,6 +50,12 @@ acceptGoal = (lbGoal) => {
       //   dailyCalories: user.calories
       // })
      
+  })
+}
+
+setMonthlyProgress =(value) =>{
+  this.setState({
+    monthly_progress: value
   })
 }
 
@@ -216,10 +222,10 @@ render(){
           <GoalForm {...routerProps} currentUser={this.state.currentUser} acceptGoal={this.acceptGoal}/>} /> 
 
         <Route path='/my_dash' render={(routerProps) =>
-          <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories} bet={this.state.currentBet} monthly_progress={this.state.monthly_progress} todays_calories={this.state.todays_calories}/> }/>
+          <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories} bet={this.state.currentBet} monthly_progress={this.state.monthly_progress} todays_calories={this.state.todays_calories} setMonthlyProgress={this.setMonthlyProgress}/> }/>
         
         <Route exact path='/my_food_log' render={(routerProps) =>
-          <MyFoodLog {...routerProps} currentUser={this.state.currentUser} logsArray={this.state.dailyLogs}/>} />
+          <MyFoodLog {...routerProps} currentUser={this.state.currentUser} logsArray={this.state.dailyLogs} setMonthlyProgress={this.setMonthlyProgress}/>} />
        
        <Route path='/my_profile' render={(routerProps) => 
         <MyProfile {...routerProps} currentUser={this.state.currentUser} createlogs={this.createlogs}/>} />

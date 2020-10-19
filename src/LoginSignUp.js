@@ -25,7 +25,7 @@ const LoginSignUp = (props) => {
                     <label>Login</label><br></br>
                     <input name="email" type="text" placeholder='email'></input><br></br>
                     <input name="password" type="text" placeholder='password'></input><br></br>
-                    <input type="submit"/>
+                    <input className='button' type="submit"/>
                 </form>
             </div>
         

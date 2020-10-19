@@ -8,11 +8,13 @@ import { useHistory } from 'react-router-dom';
 const MyFoodLog = (props) => {
 
     const [log_id, setId] = useState(null)
-    const [log, setLog] = useState({})
+    const [log, setLog] = useState(null)
     const [day_number, setDayNumber] = useState('')
     const [food_items, setFoodItems] = useState([])
     const [date, setDate] = useState('')
     const [logs, setLogs] = useState(props.logsArray)
+    const [showSearch, yesOrNo] = useState(false)
+    const [showLog, showLogAnswer] = useState(false)
 
     const history = useHistory();
 
@@ -33,6 +35,8 @@ const MyFoodLog = (props) => {
             setLog(daily_log)
             setDayNumber(daily_log.day_number)
             setDate(new Date(daily_log.date).toDateString())
+            showLogAnswer(true)
+            yesOrNo(false)
             console.log(daily_log)
         })
     }
@@ -63,6 +67,10 @@ const MyFoodLog = (props) => {
         console.log(e)
     }
 
+    let showSearchBar = () => {
+        yesOrNo(true)
+        showLogAnswer(false)
+    }
    
     return(
     <div className='food-log'>
@@ -87,23 +95,32 @@ const MyFoodLog = (props) => {
                     })}  
         </select>
           </div>
-            <input type="submit" ></input>
+            <input className='drop-down-button' type="submit" ></input>
      </form>
-            {log ? 
+            {showLog ? 
                 <Fragment>
                     {/* <h1>{day_number.toUpperCase()}
                     <h4>{date}</h4></h1><br></br> */}
                     {log.calories >= 0 ? 
-                    <h3>{`Total Calories ${log.calories}`}</h3>
+                    <div>
+                        <h3>{`Total Calories ${log.calories}`}</h3>
+                        <button className='button' onClick={showSearchBar}>Add Food to Log</button>
+                        <Log log={log} food_items={food_items} setFoodItems={setFoodItems} setLog={setLog} date={date} currentUser={props.currentUser} setMonthlyProgress={props.setMonthlyProgress}/>
+                    </div>
                     :
                     null
                     
                     }
-                    <FoodSearchBar log={log} log_id={log_id} updateLog={setLog} setFoodItems={setFoodItems} currentUser={props.currentUser}/>
                 </Fragment>
                 :
                 null} 
-                <Log log={log} food_items={food_items} setFoodItems={setFoodItems} setLog={setLog} date={date} currentUser={props.currentUser}/>
+                
+                {showSearch ? 
+                 <FoodSearchBar log={log} log_id={log_id} updateLog={setLog} setFoodItems={setFoodItems} currentUser={props.currentUser} yesOrNo={yesOrNo} showLogAnswer={showLogAnswer}/> 
+                :
+                null
+
+                }
                 </Fragment>
        }
                 

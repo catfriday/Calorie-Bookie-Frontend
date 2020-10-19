@@ -39,6 +39,8 @@ const FoodItem = (props) => {
             props.reset(null)
             props.reset2(null)
             console.log(food_entry)
+            props.yesOrNo(false) 
+            props.showLogAnswer(true)
         
         })
       
@@ -59,12 +61,12 @@ const FoodItem = (props) => {
                 <label>Which Meal</label>
                     <select onChange={(e) => categoryType(e.target.value)}>
                         <option disabled selected value> </option>
-                        <option value='breakfast' >Breakfast</option>
-                        <option value='lunch' >Lunch</option>
-                        <option value='dinner' >Dinner</option>
-                        <option value='snacks' >Snacks</option>
+                        <option value='Breakfast' >Breakfast</option>
+                        <option value='Lunch' >Lunch</option>
+                        <option value='Dinner' >Dinner</option>
+                        <option value='Snacks' >Snacks</option>
                     </select>           
-                <input type="submit" value="Add to Food Log"/>
+                <input className='button' type="submit" value="Add to Log"/>
             </form>
     </div>
 

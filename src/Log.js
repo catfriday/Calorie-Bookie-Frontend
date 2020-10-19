@@ -41,6 +41,7 @@ useEffect(() => {
     .then(res => res.json())
     .then(user => {
         console.log(user)
+        props.setMonthlyProgress(parseFloat(user.logged))
         localStorage.monthly_progress = parseFloat(user.logged) })
 }, [])
 
@@ -52,24 +53,29 @@ let getDate = () => {
 
     return(<div>
 
-        {/* {props.log ? 
-        <Fragment>
-            <h3>{`${getDate()} `}</h3>
-        <h3>{`Total Calories ${props.log.calories}`}</h3>
-        
-        </Fragment>
-    :
-    null
-        
-    } */}
-
     {props.food_items.map(item => {
        
-        return <div>
-            <h3>{item.category}</h3>
-            <p>{`${item.food_name}: Calories ${item.calories}`}</p>
-            <button onClick={() => deleteItem(item)}>Delete</button><button>Edit</button>
-        </div>
+        return <div className='container'>
+                <div className='box'>
+                    <div className='box-row'>
+                        <div className="box-cell box1">    
+                            <p>{item.category}</p>
+                        </div>
+
+                        <div className="box-cell box2">
+                            <p>{`${item.food_name}`}</p>
+                        </div>
+
+                        <div className="box-cell box3">
+                            <p>{`Calories: ${item.calories}`}</p>
+                        </div>
+
+                        <div className="box-cell box4">
+                            <button className='delete-button' onClick={() => deleteItem(item)}>X</button>    
+                        </div>
+                    </div>
+                </div>
+             </div>
     })}
         
     </div>)

@@ -31,6 +31,13 @@ const MyDash = (props) => {
             // localStorage.monthly_progress = user.logged
             console.log(user)
             setUser(user)
+
+            if (user)
+            props.setMonthlyProgress(user.logged)
+            
+            // {user ? props.setMonthlyProgress(user.logged)
+            // :
+            // null}
             // localStorage.monthly_progress = parseFloat(user.logged) 
             // setProgress(user.logged)
         })

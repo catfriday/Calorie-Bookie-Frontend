@@ -70,22 +70,23 @@ const FoodSearchBar = (props) => {
         <br></br><br></br>
             <div>
                 <div>
+                    <p>Search For Food</p>
                     <form onSubmit={(e) => searchNameSubmit(e)}>
                         <label>
-                            Search For Food by Name
+                            {/* Search For Food by Name */}
                         </label>
-                        <input name="food_name" type="text" placeholder='By Name'></input>
-                        <input type="submit" value="Search"/>
+                        <input name="food_name" type="text" placeholder='By Name'></input><br></br>
+                        <input className='button' type="submit" value="Search"/>
                     </form>
                 </div>
-                        <br></br>
+                        {/* <br></br> */}
                 <div>
                     <form  onSubmit={(e) => searchBrandSubmit(e)}>
                         <label>
-                            Search For Food by Brand
+                            {/* Search For Food by Brand */}
                         </label>
-                        <input name="food_brand" type="text" placeholder='By Brand'></input>
-                        <input type="submit" value="Search"/>
+                        <input name="food_brand" type="text" placeholder='By Brand'></input><br></br>
+                        <input className='button' type="submit" value="Search"/>
                     </form>
                 </div>
             </div>
@@ -100,7 +101,15 @@ const FoodSearchBar = (props) => {
 
 {
             reg_food_item ? 
-                <FoodItem food={reg_food_item} log_id={props.log_id} updateLog={props.updateLog} setFoodItems={props.setFoodItems} reset={getFood} reset2={regularFoodItem} currentUser={props.currentUser}/>
+                <FoodItem food={reg_food_item} 
+                        log_id={props.log_id} 
+                        updateLog={props.updateLog} 
+                        setFoodItems={props.setFoodItems} 
+                        reset={getFood} 
+                        reset2={regularFoodItem} 
+                        currentUser={props.currentUser}
+                        yesOrNo={props.yesOrNo} 
+                        showLogAnswer={props.showLogAnswer}/>
                 :
                 null
         }    
