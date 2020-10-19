@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 const MyFoodLog = (props) => {
 
     const [log_id, setId] = useState(null)
-    const [log, setLog] = useState(null)
+    const [log, setLog] = useState({})
     const [day_number, setDayNumber] = useState('')
     const [food_items, setFoodItems] = useState([])
     const [date, setDate] = useState('')
@@ -55,7 +55,7 @@ const MyFoodLog = (props) => {
         .then(user => {
             
             setLogs(user.daily_logs)
-            console.log(user.daily_logs)
+            console.log(log)
             })
     }, [])
 
@@ -78,23 +78,31 @@ const MyFoodLog = (props) => {
         <Fragment>
         <h1>My Food Log</h1>
       <form onSubmit={(e) => newLogButton(e)}>
+          <div className='custom-select'>
+
         <select onChange={(e) => setId(e.target.value)}>
             <option disabled selected value> </option>
-                {props.logsArray.map(log => {
-                    return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >{`${log.day_number}, ${new Date(log.date).toDateString()}`}</option>
+                {logs.map(log => {
+                    return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >{`${log.day_number.toUpperCase()}, ${new Date(log.date).toDateString()}`}</option>
                     })}  
         </select>
+          </div>
             <input type="submit" ></input>
      </form>
             {log ? 
                 <Fragment>
-                    <h1>{day_number.toUpperCase()}
-                    <h4>{date}</h4></h1><br></br>
+                    {/* <h1>{day_number.toUpperCase()}
+                    <h4>{date}</h4></h1><br></br> */}
+                    {log.calories >= 0 ? 
+                    <h3>{`Total Calories ${log.calories}`}</h3>
+                    :
+                    null
                     
+                    }
                     <FoodSearchBar log={log} log_id={log_id} updateLog={setLog} setFoodItems={setFoodItems} currentUser={props.currentUser}/>
                 </Fragment>
                 :
-                null}
+                null} 
                 <Log log={log} food_items={food_items} setFoodItems={setFoodItems} setLog={setLog} date={date} currentUser={props.currentUser}/>
                 </Fragment>
        }

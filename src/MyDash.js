@@ -31,6 +31,7 @@ const MyDash = (props) => {
             // localStorage.monthly_progress = user.logged
             console.log(user)
             setUser(user)
+            // localStorage.monthly_progress = parseFloat(user.logged) 
             // setProgress(user.logged)
         })
     }, [])
@@ -53,7 +54,7 @@ const MyDash = (props) => {
     
     <div >
        
-            <h1>My Dash</h1><br></br><br></br>
+            <h1 className='my-dash'>My Dash</h1><br></br><br></br>
                 
         
 

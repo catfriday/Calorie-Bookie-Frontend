@@ -24,7 +24,7 @@ state = {
   dailyLogs: [],
   dailyCalories: localStorage.calories,
   currentBet: [],
-  monthly_progress: 0,
+  monthly_progress: localStorage.monthly_progress,
   todays_calories: 0
   
 }

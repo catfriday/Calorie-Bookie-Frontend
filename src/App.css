@@ -63,8 +63,8 @@
   }
 
   li:hover {
-    background-color:white;
-    color: black;
+    background-color:black;
+    color: white;
   }
 
   .sign-up-h2:hover{
@@ -78,11 +78,25 @@
 
   div.search-tile {
     justify-content: center;
-    color: white;
-    background-color: black;
-    width: 350px;
+    color: black;
+    background-color: white;
+    width: 365px;
     height: 210px;
     overflow: scroll;
+    position: relative;
+    left:-570px;
+    float: right;
+    border: black solid 2px;
+  }
+
+  .food-form{
+    position: relative;
+    float: left;
+    left:585px;
+    border: black solid 2px;
+    /* box-shadow: 5px 10px 18px black; */
+    width: 25rem;
+    height: 14rem;
   }
 
   .food-log{
@@ -154,8 +168,8 @@
    #logo{
     position:relative;
     /* top:px;  */
-    width:225px; 
-    height:225px
+    width:235px; 
+    height:235px
   }
 
   progress::-webkit-progress-bar {
@@ -174,15 +188,18 @@
     background-color: #111;
     overflow-x: hidden;
     padding-top: 20px;
+    cursor: pointer;
+    /* opacity: 75%; */
   }
   
   .sidenav a {
-    padding: 6px 8px 35px 16px;
+    padding: 6px 8px 30px 16px;
     text-decoration: none;
     font-size: 25px;
     color: white;
     display: block;
     font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .sidenav a:hover {
@@ -196,4 +213,9 @@
     margin-left: 160px; /* Same as the width of the sidenav */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
+  }
+
+  .my-dash{
+    font-weight: bolder;
+    font-size: 45px;
   }

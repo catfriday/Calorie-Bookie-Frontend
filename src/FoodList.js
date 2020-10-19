@@ -62,7 +62,7 @@ const FoodList = (props) => {
       
     }
 
-    return(<div>
+    return(
 
        <div className='search-tile'>
         <ul>
@@ -80,30 +80,8 @@ const FoodList = (props) => {
        
         </ul>
         </div> 
-        {/* {list_item ?
-        <div >
-            <h2>{list_item.food_name}</h2>
-            <h3>{`${list_item.serving_qty} ${list_item.serving_unit}`}</h3>
-            
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <label>How Many Servings?</label>
-                <input name="serving" type="number" step="any"  placeholder='serving size' onChange={(e) => calcCal(e)}></input>
-                <label>Calories</label><input name="calories" type="number" placeholder='calories' value={list_item.calories * parseFloat(servings)} ></input><br></br><br></br> 
-                <label>Which Meal</label>
-                    <select onChange={(e) => categoryType(e.target.value)}>
-                        <option disabled selected value> </option>
-                        <option value='breakfast' >Breakfast</option>
-                        <option value='lunch' >Lunch</option>
-                        <option value='dinner' >Dinner</option>
-                        <option value='snacks' >Snacks</option>
-                    </select><br></br><br></br>            
-                <input type="submit" value="Add to Food Log"/>
-            </form>
-        </div>
-        :
-        null} */}
-
-    </div>)
+        
+    )
 }
 
 export default FoodList
