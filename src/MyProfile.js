@@ -21,15 +21,32 @@ const MyProfile = (props) => {
             setUser(user)})
     }, [])
 
-    return(<div>
-        {/* {props.currentUser.calories > 0 ? 
-        null
-        :
-    <button onClick={() => history.push('/goals_form')}>Calories Goal Form</button>
-    }
+    return(
+        <div >
+            <h1 className='my-dash'>My Profile</h1><br></br><br></br>
+           
+   
+
+       <div className='profile-card'>
+           <div className='profile-image-div'>
+               <img className='card-image' src={currentUser.image} height="190px" width="190px"></img>      
+           </div>   
+
+        <div className='profile-info-div'>
+            
+           <p className='name'>{currentUser.name}</p>
+            <p>{`${currentUser.city}`}</p>
+            <p>{`Current Weight: ${currentUser.weight}`}</p>
+            <p>{`Daily Calories Goal: ${currentUser.calories}`}</p>
+            <button className='edit-button'>Edit Profile</button>
+
+        </div>
+           
+                   
+           
     
-    {currentUser.dailyLogs.length === 0 ? <button onClick={props.createlogs}>Create Daily 30 Log</button>
-            : null} */}
+       </div>
+
 
     </div>)
 }
