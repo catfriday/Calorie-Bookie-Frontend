@@ -27,27 +27,19 @@ const MyProfile = (props) => {
            
    
 
-       <div className='profile-card'>
-           <div className='profile-image-div'>
-               <img className='card-image' src={currentUser.image} height="190px" width="190px"></img>      
-           </div>   
+            <div className='profile-card'>
+                <div className='profile-image-div'>
+                    <img className='card-image' src={currentUser.image} height="190px" width="190px"></img>      
+                </div>   
 
-        <div className='profile-info-div'>
-            
-           <p className='name'>{currentUser.name}</p>
-            <p>{`${currentUser.city}`}</p>
-            <p>{`Current Weight: ${currentUser.weight}`}</p>
-            <p>{`Daily Calories Goal: ${currentUser.calories}`}</p>
-            <button className='edit-button'>Edit Profile</button>
-
-        </div>
-           
-                   
-           
-    
-       </div>
-
-
+                <div className='profile-info-div'>
+                    <p className='name'>{currentUser.name}</p>
+                    <p>{`${currentUser.city}`}</p>
+                    <p>{`Current Weight: ${currentUser.weight}`}</p>
+                    <p>{`Daily Calories Goal: ${currentUser.calories}`}</p>
+                    <button className='edit-button'>Edit Profile</button>
+                </div>
+            </div>
     </div>)
 }
 

@@ -46,9 +46,9 @@ useEffect(() => {
 }, [])
 
 let getDate = () => {
-    let d= new Date(props.log.date)
-   
-    return  d.toDateString()
+    let d= props.log.date.replace(/\-/g, '/')
+    let t = new Date(d)
+    return t.toDateString()
 }
 
     return(<div>
@@ -69,10 +69,14 @@ let getDate = () => {
                         <div className="box-cell box3">
                             <p>{`Calories: ${item.calories}`}</p>
                         </div>
-
+                        {getDate() == new Date().toDateString() ?
                         <div className="box-cell box4">
                             <button className='delete-button' onClick={() => deleteItem(item)}>X</button>    
                         </div>
+                        :
+                        null
+                        
+                    }
                     </div>
                 </div>
              </div>

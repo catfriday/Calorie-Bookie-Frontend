@@ -71,6 +71,13 @@ const MyFoodLog = (props) => {
         yesOrNo(true)
         showLogAnswer(false)
     }
+
+    let getDate = (log) => {
+        let d= log.date.replace(/\-/g, '/')
+        let t = new Date(d)
+        return t.toDateString()
+    }
+    
    
     return(
     <div className='food-log'>
@@ -91,7 +98,7 @@ const MyFoodLog = (props) => {
         <select onChange={(e) => setId(e.target.value)}>
             <option disabled selected value> </option>
                 {logs.map(log => {
-                    return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >{`${log.day_number.toUpperCase()}, ${new Date(log.date).toDateString()}`}</option>
+                    return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >{`${log.day_number.toUpperCase()}, ${getDate(log)}`}</option>
                     })}  
         </select>
           </div>
