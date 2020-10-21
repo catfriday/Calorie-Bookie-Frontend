@@ -71,13 +71,16 @@ const MyDash = (props) => {
                     <img className='card-image' src={image} height="190px" width="190px"></img>      
                 </div>   
 
-                {props.currentUser.calories > 0 ?
+                {props.currentUser.calories >= 0 ?
                         <div className='calories-div'>
                             <p>{`Daily Calories: ${props.currentUser.calories}`}</p>
                                 {props.currentUser.calories - props.todays_calories > 0 ?
                                 <p>{`Calories Remaining for Today: ${props.currentUser.calories - props.todays_calories}`}</p>
                                 :
+                                props.currentUser.calories - props.todays_calories < 0 ?
                                 <p className='exceede'>{`Calories Exceeded Today: ${props.currentUser.calories - props.todays_calories}`}</p>
+                                :
+                                <p>{props.todays_calories}</p>
                             }
                         </div>
                             :

@@ -463,7 +463,34 @@ cursor: pointer;
   box-sizing: border-box;
   border: none;
   border-bottom: 2px solid rgb(216, 214, 214);
+  
 }
+
+.goal-form{
+  justify-content: center;
+  position: relative;
+  right: -40%;
+  
+}
+
+.goal-input{
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+
+.goal-number-form{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid rgb(216, 214, 214); 
+}
+
 
 .number-form{
     width: 20%;

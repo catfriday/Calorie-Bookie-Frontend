@@ -48,8 +48,8 @@ let selectedOption = (e) => {
         <p>How Much Weight Would You Like to Lose Per Week?</p>
         </div>
         
-        <div>
-            <form className='form' onSubmit={(e)=> selectedOption(e)}>
+        <div className='goal-form'>
+            <form className='goal-input' onSubmit={(e)=> selectedOption(e)}>
 
                 <select className='select' onChange={(e) => getCalGoal(e.target.value)}>
                 <option disabled selected value> </option>
