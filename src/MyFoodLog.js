@@ -101,9 +101,9 @@ const MyFoodLog = (props) => {
                     return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >{`${log.day_number.toUpperCase()}, ${getDate(log)}`}</option>
                     })}  
         </select>
+            <input value='go' className='drop-down-button' type="submit" ></input>
           </div>
           <br></br>
-            <input className='drop-down-button' type="submit" ></input>
      </form>
             {showLog ? 
                 <Fragment>
@@ -112,7 +112,7 @@ const MyFoodLog = (props) => {
                     {log.calories >= 0 ? 
                     <div>
                         <h3>{`Total Calories ${log.calories}`}</h3>
-                        <button className='button' onClick={showSearchBar}>Add Food to Log</button>
+                        <button className='button' onClick={showSearchBar}>Add Food</button>
                         <Log log={log} food_items={food_items} setFoodItems={setFoodItems} setLog={setLog} date={date} currentUser={props.currentUser} setMonthlyProgress={props.setMonthlyProgress}/>
                     </div>
                     :

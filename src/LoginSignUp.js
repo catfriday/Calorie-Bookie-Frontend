@@ -13,20 +13,20 @@ const LoginSignUp = (props) => {
            })
     }
     return(
-        <div>
-            <div>
-                <h2 className='sign-up-h2' onClick={() => history.push('/create_profile')}>Create Profile</h2>
-                <h3>or</h3>
-                <form onSubmit={(e) => {
-                     props.login(e)
-                     handleClick()
+        <div className='login-signup-form'>
+            <div >
+                {/* <h3>or</h3> */}
+                <form  onSubmit={(e) => {
+                    props.login(e)
+                    handleClick()
                 }
-                }>
-                    <h2>Login</h2><br></br>
+            }>
+                    {/* <h2>Login</h2><br></br> */}
                     <input className='form' name="email" type="text" placeholder='email'></input><br></br>
                     <input className='form' name="password" type="text" placeholder='password'></input><br></br>
-                    <input className='button' type="submit"/>
+                    <input className='button' value='Login' type="submit"/>
                 </form>
+            <p className='sign-up-h2' onClick={() => history.push('/create_profile')}>Create Profile</p>
             </div>
         
         {/* <Link to="/movies"> Show All Movies </Link>  */}
