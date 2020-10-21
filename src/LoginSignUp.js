@@ -22,9 +22,9 @@ const LoginSignUp = (props) => {
                      handleClick()
                 }
                 }>
-                    <label>Login</label><br></br>
-                    <input name="email" type="text" placeholder='email'></input><br></br>
-                    <input name="password" type="text" placeholder='password'></input><br></br>
+                    <h2>Login</h2><br></br>
+                    <input className='form' name="email" type="text" placeholder='email'></input><br></br>
+                    <input className='form' name="password" type="text" placeholder='password'></input><br></br>
                     <input className='button' type="submit"/>
                 </form>
             </div>

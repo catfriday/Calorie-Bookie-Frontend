@@ -51,16 +51,16 @@ const FoodItem = (props) => {
 
     <div className='food-form'>
         
-            <p>{props.food.food_name}</p>
+            <p className='food-name'>{props.food.food_name.charAt(0).toUpperCase() + props.food.food_name.slice(1)}</p>
             <p>{`${props.food.serving_qty} ${props.food.serving_unit}`}</p>
             {/* <p>How Many Servings?</p> */}
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label>How Many Servings?</label>
-                <input name="serving" type="number" step="any"  placeholder='serving size' onChange={(e) => calcCal(e)}></input><br></br>
-                <label>Calories</label><input name="calories" type="number" placeholder='calories' value={props.food.calories * parseFloat(servings)} ></input><br></br>
+                <input className='servings' name="serving" type="number" step="any"  placeholder='serving size' onChange={(e) => calcCal(e)}></input><br></br>
+                <label>Calories</label><input className='servings' name="calories" type="number" placeholder='calories' value={props.food.calories * parseFloat(servings)} ></input><br></br>
                 <label>Which Meal</label>
-                    <select onChange={(e) => categoryType(e.target.value)}>
-                        <option disabled selected value> </option>
+                    <select className='food-dropdown' onChange={(e) => categoryType(e.target.value)}>
+                        <option disabled selected value>Category </option>
                         <option value='Breakfast' >Breakfast</option>
                         <option value='Lunch' >Lunch</option>
                         <option value='Dinner' >Dinner</option>

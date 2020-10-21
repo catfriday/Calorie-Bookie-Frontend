@@ -26,7 +26,7 @@ const NewNav = (props) =>{
         }}  className="nav-menu" id='balance'>Logout</button> */}
 
 <div className="sidenav">
-  <a onClick={() => history.push('/my_dash')} >Dash</a>
+  <a className='active' onClick={() => history.push('/my_dash')} >Dash</a>
   <a onClick={() => history.push('/my_profile')}>Profile</a>
   <a onClick={() => history.push('/my_food_log')} >Food Log</a>
   <a onClick={() => {

@@ -95,13 +95,14 @@ const MyFoodLog = (props) => {
       <form onSubmit={(e) => newLogButton(e)}>
           <div className='custom-select'>
 
-        <select onChange={(e) => setId(e.target.value)}>
+        <select className='select' onChange={(e) => setId(e.target.value)}>
             <option disabled selected value> </option>
                 {logs.map(log => {
                     return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >{`${log.day_number.toUpperCase()}, ${getDate(log)}`}</option>
                     })}  
         </select>
           </div>
+          <br></br>
             <input className='drop-down-button' type="submit" ></input>
      </form>
             {showLog ? 

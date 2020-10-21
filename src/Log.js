@@ -63,7 +63,7 @@ let getDate = () => {
                         </div>
 
                         <div className="box-cell box2">
-                            <p>{`${item.food_name}`}</p>
+                            <p>{`${item.food_name.charAt(0).toUpperCase() + item.food_name.slice(1)}`}</p>
                         </div>
 
                         <div className="box-cell box3">

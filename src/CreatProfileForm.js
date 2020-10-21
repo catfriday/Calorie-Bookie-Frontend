@@ -14,13 +14,13 @@ const CreateProfileForm = (props) => {
           }
           }>
              
-                    <input name="name" type="text" placeholder='name'></input><br></br>
-                    <input name="email" type="text" placeholder='email'></input><br></br>
-                    <input name="password" type="text" placeholder='password'></input><br></br>
-                    <input name="weight" type="number" placeholder='weight'></input><br></br>
-                    <input name="image" type="text" placeholder='image'></input><br></br>
-                    <input name="city" type="text" placeholder='city'></input><br></br>
-                    <input type="submit"/>
+                    <input className='form' name="name" type="text" placeholder='name'></input><br></br>
+                    <input className='form' name="email" type="text" placeholder='email'></input><br></br>
+                    <input className='form' name="password" type="text" placeholder='password'></input><br></br>
+                    <input className='number-form' name="weight" type="number" placeholder='weight'></input><br></br>
+                    <input className='form' name="image" type="text" placeholder='image'></input><br></br>
+                    <input className='form' name="city" type="text" placeholder='city'></input><br></br>
+                    <input className='button' type="submit"/>
           </form>
       </div>
       

@@ -77,6 +77,7 @@
 
   .sign-up-h2{
     color:black;
+    font-weight: lighter;
   }
 
   div.search-tile {
@@ -84,7 +85,7 @@
     color: black;
     background-color: white;
     width: 385px;
-    height: 240px;
+    height: 300px;
     overflow: scroll;
     position: relative;
     left:-570px;
@@ -108,9 +109,33 @@
 
   progress[value] {
     width: 250px;
-    height: 20px;
+    height: 15px;
+    -webkit-appearance: none;
+   appearance: none;
+   
     
   }
+
+  progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(5, 5, 5, 0.25) inset;
+  }
+  progress[value]::-webkit-progress-value {
+    /* background-image:
+       -webkit-linear-gradient(-45deg, 
+                               transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                               rgba(0,0, 0, .1) 66%, transparent 66%),
+       -webkit-linear-gradient(top, 
+                               rgba(255, 255, 255, .25), 
+                               rgba(0, 0, 0, .25)),
+       -webkit-linear-gradient(left, #09c, #f44); */
+      background-color: black;
+      /* border-radius: 4px;  */
+      background-size: 35px 20px, 100% 100%, 100% 100%;
+  }
+
+  
 
   .card{
     text-align: center;
@@ -231,24 +256,25 @@
     font-size: 17px;
     border-radius: 7px;
     justify-content: center;
-    background-color: white;
+    /* background-color: white; */
+    background-image: url('./Untitled design.gif');
 }
  .bet-info-div{
-  position: relative;
+  /* position: relative; */
   /* left: 50%; */
   font-size: 15px;
   border: white solid 1px;
-  width: 14rem;
-  height: 13rem;
+  width: 23rem;
+  height: 8rem;
   text-align: center;
   
-  top:-10%;
+  /* top:-10%; */
   /* box-shadow: 3px 4px red; */
   box-shadow: 5px 10px 8px #888888;
   
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 7px;
-  
+  background-color: white;
   
  }
 
@@ -267,6 +293,7 @@
   font-weight: bold;
   font-size: 25px;
   top: -20%;
+  background-color: white;
 
  }
    /* justify-content: center; */
@@ -277,10 +304,7 @@
     height:235px
   }
 
-  progress::-webkit-progress-bar {
-    background-color: yellow;
-    border-radius: 7px;
-  }
+  
 
 
   .sidenav {
@@ -290,25 +314,26 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: white;
     overflow-x: hidden;
-    padding-top: 20px;
+    padding-top: 150px;
     cursor: pointer;
     /* opacity: 75%; */
   }
   
   .sidenav a {
-    padding: 6px 8px 30px 16px;
+    padding: 6px 8px 70px 16px;
     text-decoration: none;
-    font-size: 25px;
-    color: white;
+    font-size: 23px;
+    color: black;
     display: block;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-family: Arial, Helvetica, sans-serif;
+    border-top: rgb(216, 214, 214) solid 1px;
   }
   
-  .sidenav a:hover {
-    color: black;
+  .sidenav a:hover, a:focus {
+    color: red;
     background-color:white;
     
   }
@@ -339,7 +364,7 @@
     width:30%;  
     /* padding:1px;   */
     /* border: black solid 1px; */
-    border-bottom: red solid 1px;
+    border-bottom: red solid 2px;
     
 }  
 .container .box .box-cell.box1 {  
@@ -353,12 +378,14 @@
 .container .box .box-cell.box2 {  
     background:white;  
     text-align:justify;
+    font-size: 18px;
       
 
 }  
 .container .box .box-cell.box3 {  
     background:white;  
-    text-align:justify;  
+    text-align:justify;
+    font-size: 18px;  
 } 
 .container .box .box-cell.box4 {  
   background:white;  
@@ -385,7 +412,24 @@ cursor: pointer;
  border: black solid 1px;
 }
 
-input[type=text] {
+
+.servings{
+  /* border-bottom: 2px solid black; */
+  width: 41%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid  rgb(238, 234, 234);
+  text-align: center;
+}
+
+.food-name{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.form[type=text] {
   width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -394,14 +438,19 @@ input[type=text] {
   border-bottom: 2px solid red;
 }
 
-input[type=number] {
-  width: 20%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 2px solid red;
+.number-form{
+
+  
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid red;
+  
 }
+
+
 
 .button {
   background-color: #4CAF50; /* Green */
@@ -445,11 +494,18 @@ input[type=number] {
 }
 
 /* .button:hover {opacity: 1} */
-select {
+.select {
   font-size: 20px;
   color: black;
-  border: 0;
+  border: 1px solid red;
   /* font-family: Cursive; */
+}
+
+.food-dropdown{
+  font-size: 15px;
+  color: black;
+  border: 1px solid red;
+  height: 28px;
 }
 
 select:hover {
@@ -459,19 +515,23 @@ border: 2px solid red;
 
 .drop-down-button{
   border: none;
+  /* border: 1px solid red; */
   cursor: pointer;
-  color: black;
+  color: red;
   background-color: transparent;
+  font-weight: bold;
 }
 
 .drop-down-button:hover{
   color: red;
+    border: 1px solid red;
+  
 }
 
 body{
   height:1500px;
   /* background-image: url('./Untitled design (1).png'); */
-  background-image: url('./Untitled design.gif');
+  
 }
 
 .edit-button{
@@ -487,4 +547,12 @@ body{
 
 .edit-button:hover{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+h1{
+  font-weight: bold;
+}
+
+h2{
+  font-weight: bolder;
 }

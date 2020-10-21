@@ -71,11 +71,11 @@ const FoodSearchBar = (props) => {
             <div>
                 <div>
                     <p>Search For Food</p>
-                    <form onSubmit={(e) => searchNameSubmit(e)}>
+                    <form  onSubmit={(e) => searchNameSubmit(e)}>
                         <label>
                             {/* Search For Food by Name */}
                         </label>
-                        <input name="food_name" type="text" placeholder='By Name'></input><br></br>
+                        <input className='form' name="food_name" type="text" placeholder='By Name'></input><br></br>
                         <input className='button' type="submit" value="Search"/>
                     </form>
                 </div>
@@ -85,7 +85,7 @@ const FoodSearchBar = (props) => {
                         <label>
                             {/* Search For Food by Brand */}
                         </label>
-                        <input name="food_brand" type="text" placeholder='By Brand'></input><br></br>
+                        <input className='form' name="food_brand" type="text" placeholder='By Brand'></input><br></br>
                         <input className='button' type="submit" value="Search"/>
                     </form>
                 </div>
