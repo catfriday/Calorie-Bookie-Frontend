@@ -26,6 +26,7 @@ const deleteItem = (item) =>{
         .then(resp => resp.json())
         .then(log => {
             props.setLog(log)
+            props.todayCalories(log.calories)
         })
 }
 
@@ -67,7 +68,8 @@ let getDate = () => {
                         </div>
 
                         <div className="box-cell box3">
-                            <p>{`Calories: ${item.calories}`}</p>
+                            <p className='calories-p'>Calories</p>
+                            <p>{item.calories}</p>
                         </div>
                         {getDate() == new Date().toDateString() ?
                         <div className="box-cell box4">

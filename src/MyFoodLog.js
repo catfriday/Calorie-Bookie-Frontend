@@ -98,7 +98,14 @@ const MyFoodLog = (props) => {
         <select className='select' onChange={(e) => setId(e.target.value)}>
             <option disabled selected value> </option>
                 {logs.map(log => {
-                    return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >{`${log.day_number.toUpperCase()}, ${getDate(log)}`}</option>
+                    return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >
+                            {getDate(log) === new Date().toDateString() ?
+                            'Today'
+                            :
+                            `${log.day_number.toUpperCase()}, ${getDate(log)}`
+
+                            }
+                            </option>
                     })}  
         </select>
             <input value='go' className='drop-down-button' type="submit" ></input>
@@ -113,7 +120,14 @@ const MyFoodLog = (props) => {
                     <div>
                         <h3>{`Total Calories ${log.calories}`}</h3>
                         <button className='button' onClick={showSearchBar}>Add Food</button>
-                        <Log log={log} food_items={food_items} setFoodItems={setFoodItems} setLog={setLog} date={date} currentUser={props.currentUser} setMonthlyProgress={props.setMonthlyProgress}/>
+                        <Log 
+                            log={log} 
+                            food_items={food_items} 
+                            setFoodItems={setFoodItems} 
+                            setLog={setLog} date={date} 
+                            currentUser={props.currentUser} 
+                            setMonthlyProgress={props.setMonthlyProgress}
+                            todayCalories={props.todayCalories}/>
                     </div>
                     :
                     null
@@ -124,7 +138,15 @@ const MyFoodLog = (props) => {
                 null} 
                 
                 {showSearch ? 
-                 <FoodSearchBar log={log} log_id={log_id} updateLog={setLog} setFoodItems={setFoodItems} currentUser={props.currentUser} yesOrNo={yesOrNo} showLogAnswer={showLogAnswer}/> 
+                 <FoodSearchBar 
+                    log={log} 
+                    log_id={log_id} 
+                    updateLog={setLog} 
+                    setFoodItems={setFoodItems} 
+                    currentUser={props.currentUser} 
+                    yesOrNo={yesOrNo} 
+                    showLogAnswer={showLogAnswer}
+                    todayCalories={props.todayCalories}/> 
                 :
                 null
 

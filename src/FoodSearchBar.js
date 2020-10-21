@@ -109,7 +109,8 @@ const FoodSearchBar = (props) => {
                         reset2={regularFoodItem} 
                         currentUser={props.currentUser}
                         yesOrNo={props.yesOrNo} 
-                        showLogAnswer={props.showLogAnswer}/>
+                        showLogAnswer={props.showLogAnswer}
+                        todayCalories={props.todayCalories}/>
                 :
                 null
         }    

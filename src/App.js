@@ -191,6 +191,13 @@ fetch('http://localhost:3000/api/v1/create_thirty', {
         })
 }
 
+todayCalories =(value) => {
+  this.setState({
+    todays_calories: value
+  })
+}
+
+
 
 render(){
   return (
@@ -225,7 +232,11 @@ render(){
           <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories} bet={this.state.currentBet} monthly_progress={this.state.monthly_progress} todays_calories={this.state.todays_calories} setMonthlyProgress={this.setMonthlyProgress}/> }/>
         
         <Route exact path='/my_food_log' render={(routerProps) =>
-          <MyFoodLog {...routerProps} currentUser={this.state.currentUser} logsArray={this.state.dailyLogs} setMonthlyProgress={this.setMonthlyProgress}/>} />
+          <MyFoodLog {...routerProps} 
+            currentUser={this.state.currentUser} 
+            logsArray={this.state.dailyLogs} 
+            setMonthlyProgress={this.setMonthlyProgress}
+            todayCalories={this.todayCalories}/>} />
        
        <Route path='/my_profile' render={(routerProps) => 
         <MyProfile {...routerProps} currentUser={this.state.currentUser} createlogs={this.createlogs}/>} />
@@ -234,7 +245,12 @@ render(){
           <MyBetDash currentUser={this.state.currentUser} bet={this.state.currentBet}/> }/>
 
           <Route path='/bet_form' render={(routerProps) =>
-          <BetForm currentUser={this.state.currentUser} setCurrentBet={this.setCurrentBet} acceptGoal={this.acceptGoal} createLogs={this.createlogs}/>} />
+          <BetForm 
+            currentUser={this.state.currentUser} 
+            setCurrentBet={this.setCurrentBet} 
+            acceptGoal={this.acceptGoal} 
+            createLogs={this.createlogs}
+            updateBet={this.updateBet}/>} />
 
         {/* <Route path='/my_food_log/:day_number' render={(routerProps) =>
           <FoodSearchBar {...routerProps} /> }/>

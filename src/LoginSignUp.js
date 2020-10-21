@@ -23,7 +23,7 @@ const LoginSignUp = (props) => {
             }>
                     {/* <h2>Login</h2><br></br> */}
                     <input className='form' name="email" type="text" placeholder='email'></input><br></br>
-                    <input className='form' name="password" type="text" placeholder='password'></input><br></br>
+                    <input className='form' name="password" type="text" placeholder='password' type='password' ></input><br></br>
                     <input className='button' value='Login' type="submit"/>
                 </form>
             <p className='sign-up-h2' onClick={() => history.push('/create_profile')}>Create Profile</p>

@@ -77,19 +77,25 @@ const MyDash = (props) => {
                                 {props.currentUser.calories - props.todays_calories > 0 ?
                                 <p>{`Calories Remaining for Today: ${props.currentUser.calories - props.todays_calories}`}</p>
                                 :
-                                <p>{`Calories Exceeded Today: ${props.currentUser.calories - props.todays_calories}`}</p>
+                                <p className='exceede'>{`Calories Exceeded Today: ${props.currentUser.calories - props.todays_calories}`}</p>
                             }
                         </div>
                             :
-                            <h5>Please Place Your Bet on Your Bet Dash</h5>
+                            <h5 className='calories-div'>Please Place Your Bet on Your Bet Dash</h5>
                 }
-                    {props.monthly_progress === "null" ?
-                    null
-                    :
+                    {props.monthly_progress > 0  ?
+                  
                         <div className='progress-bar'>
+                            <p>Monthly Progress {`${Math.round(props.monthly_progress * 100)}%`}</p>
+                            <label>
+                            <progress id="file" max="100" value={Math.round(props.monthly_progress * 100)}> </progress> 
+                            </label>
+                        </div>
+                    :
+                    <div className='progress-bar'>
                             <p>Monthly Progress</p>
                             <label>
-                            <progress id="file" max="100" value={Math.round(props.monthly_progress * 100)}> </progress> {`${Math.round(props.monthly_progress * 100)}%`}
+                            <progress id="file" max="100" value='0'> </progress> {`${0}%`}
                             </label>
                         </div>
                     }

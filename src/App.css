@@ -117,7 +117,7 @@
 
   progress[value] {
     width: 250px;
-    height: 15px;
+    height: 20px;
     -webkit-appearance: none;
    appearance: none;
    
@@ -138,7 +138,9 @@
                                rgba(255, 255, 255, .25), 
                                rgba(0, 0, 0, .25)),
        -webkit-linear-gradient(left, #09c, #f44); */
-      background-color: black;
+      /* background-color: black; */
+      background-image: url('https://www.thebalance.com/thmb/Wd0P1LjG2Iw6oW3uriSV8hkWOH4=/4916x2765/smart/filters:no_upscale()/four-secrects-to-making-money-58dc88323df78c516216db18.jpg');
+
       /* border-radius: 4px;  */
       background-size: 35px 20px, 100% 100%, 100% 100%;
   }
@@ -161,6 +163,7 @@
     background-color: white;
     /* font-family: Andale Mono; */
     /* justify-self: center; */
+    
   }
    .card-image{
      /* float: left; */
@@ -168,9 +171,11 @@
      position:absolute; */
      /* border-radius: 7px; */
      box-shadow: 5px 10px 8px #888888;
+     border: 3px solid rgb(242, 252, 99);
    }
 
    .progress-bar{
+    text-align: center;
     top:25px;
     position: relative;
     /* float: right; */
@@ -184,6 +189,7 @@
       font-weight: bold;
       font-size: 16px;
       right:1100px;
+      
    }
 
    .calories-div{
@@ -194,10 +200,10 @@
     width: 25rem;
     height: 8rem;
     text-align: center;
-    top:40px;
+    top:60px;
     /* box-shadow: 3px 4px red; */
     box-shadow: 5px 10px 8px #888888;
-    
+    border: 3px solid rgb(242, 252, 99);
     /* font-family: Andale Mono; */
     /* border-radius: 7px; */
    }
@@ -238,10 +244,10 @@
   height: 13rem;
   text-align: center;
   
-  top:50px;
+  top:70px;
   /* box-shadow: 3px 4px red; */
   box-shadow: 5px 10px 8px #888888;
-  
+  border: 3px solid rgb(242, 252, 99);
   /* font-family: Andale Mono; */
   /* border-radius: 7px; */
  }
@@ -270,12 +276,12 @@
  .bet-info-div{
   /* position: relative; */
   /* left: 50%; */
-  font-size: 15px;
+  font-size: 18px;
   border: white solid 1px;
   width: 23rem;
-  height: 8rem;
+  height: 7rem;
   text-align: center;
-  
+  border: 3px solid rgb(242, 252, 99);
   /* top:-10%; */
   /* box-shadow: 3px 4px red; */
   box-shadow: 5px 10px 8px #888888;
@@ -302,7 +308,8 @@
   font-size: 25px;
   top: -20%;
   background-color: white;
-
+  border: 3px solid rgb(242, 252, 99);
+  height: 44px;
  }
    /* justify-content: center; */
    #logo{
@@ -360,11 +367,11 @@
     padding: 0px 10px;
   }
 
-  .my-dash{
-    font-weight: bold;
+  /* .my-dash{
+   
     font-size: 45px;
-    /* font-family: Andale Mono; */
-  }
+    
+  } */
 
   .container .box {  
     width:600px; 
@@ -380,33 +387,37 @@
     width:30%;  
     /* padding:1px;   */
     /* border: black solid 1px; */
-    border-bottom: rgb(216, 214, 214)solid 2px;
+    border-top: rgb(216, 214, 214)solid 2px;
     
 }  
 .container .box .box-cell.box1 {  
     background:white;  
     color:black;  
-    text-align:justify; 
+    text-align:center; 
     font-weight: bolder;
     font-size: 18px;
     
 }  
 .container .box .box-cell.box2 {  
     background:white;  
-    text-align:justify;
+    text-align:center;
     font-size: 18px;
       
 
 }  
 .container .box .box-cell.box3 {  
     background:white;  
-    text-align:justify;
+    text-align:center;
     font-size: 18px;  
 } 
 .container .box .box-cell.box4 {  
   background:white;  
-  text-align:justify;  
+  text-align:center;  
 } 
+
+.calories-p{
+  font-weight: bolder;
+}
 .container{
   position: relative;
   left:650px;
@@ -445,7 +456,7 @@ cursor: pointer;
   font-size: 16px;
 }
 
-.form[type=text] {
+.form {
   width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -455,15 +466,12 @@ cursor: pointer;
 }
 
 .number-form{
-
-  
     width: 20%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid rgb(216, 214, 214);
-  
+    border-bottom: 2px solid rgb(216, 214, 214); 
 }
 
 
@@ -489,14 +497,15 @@ cursor: pointer;
 }
 
 .button:hover{
-  background-color: rgb(216, 214, 214);
+  background-color: rgb(242, 252, 99);;
   cursor: pointer;
 }
 
 .button {
   background-color: white;
   /* border: none; */
-  border: 1px solid rgb(216, 214, 214);
+  /* border: 1px solid rgb(216, 214, 214); */
+  border: 3px solid rgb(242, 252, 99);
   color: black;
   /* padding: 16px 32px; */
   text-align: center;
@@ -513,25 +522,27 @@ cursor: pointer;
 .select {
   font-size: 20px;
   color: black;
-  border: 1px solid rgb(216, 214, 214);
-  
+  border: 2px solid rgb(242, 252, 99);
+  justify-content: center;
+  text-align-last:center;
   /* font-family: Cursive; */
 }
 
 .food-dropdown{
   font-size: 15px;
   color: black;
-  border: 1px solid rgb(216, 214, 214);
+  border: 2px solid rgb(242, 252, 99);
   height: 28px;
 }
 
 select:hover {
 cursor: pointer;
+/* background-color:rgb(242, 252, 99); */
 /* border: 2px solid red; */
 }
 
 .drop-down-button{
-  border: rgb(216, 214, 214) solid 1px;
+  border: rgb(242, 252, 99) solid 2px;
   /* border: 1px solid red; */
   cursor: pointer;
   color: black;
@@ -546,7 +557,7 @@ cursor: pointer;
   /* color: red; */
   /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
     border: 1px solid brgb(216, 214, 214);
-    background-color: rgb(216, 214, 214);
+    background-color: rgb(242, 252, 99);
   
 }
 
@@ -577,4 +588,10 @@ body{
 
 h2{
   font-weight: lighter;
+}
+
+.exceede{
+  color:red;
+  font-weight: bold;
+  font-size: 20px;
 }

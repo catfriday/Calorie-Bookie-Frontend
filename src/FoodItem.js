@@ -41,6 +41,7 @@ const FoodItem = (props) => {
             console.log(food_entry)
             props.yesOrNo(false) 
             props.showLogAnswer(true)
+            props.todayCalories(food_entry.calories)
         
         })
       

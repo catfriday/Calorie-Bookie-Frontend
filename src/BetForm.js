@@ -42,18 +42,18 @@ let handleSubmit = (e) => {
 
 
     return(<div>
-        <h1> Start Your Bet and Your 30 Day Log</h1>
+        <h1> Start Your 30 Day Log and Place Bet</h1>
 
         
         {goalSet ? 
-        <form onSubmit={(e) =>{
+        <form className='form' onSubmit={(e) =>{
             handleSubmit(e)
             history.push('/my_dash')
             props.createLogs()
             }}>
             <label>Enter Amount</label>
-            <input name="amount" type="number" placeholder='Bet Amount'></input><br></br>
-            <input type="submit"/>
+            <input className='number-form' name="amount" type="number" placeholder='Bet Amount'></input><br></br>
+            <input className='button' type="submit"/>
         </form>
         :
         <GoalForm isSet={isSet} acceptGoal={props.acceptGoal}/>

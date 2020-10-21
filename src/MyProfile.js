@@ -37,7 +37,7 @@ const MyProfile = (props) => {
                     <p>{`${currentUser.city}`}</p>
                     <p>{`Current Weight: ${currentUser.weight}`}</p>
                     <p>{`Daily Calories Goal: ${currentUser.calories}`}</p>
-                    <button className='edit-button'>Edit Profile</button>
+                    <button className='button'>Edit Profile</button>
                 </div>
             </div>
     </div>)
