@@ -41,7 +41,7 @@ const MyBetDash = (props) => {
 
                 <div className='bet-info-div'>
                     <p>{`Days Remaining: ${currentbet.days_left}`}</p>
-                    <p>{`Bet Amount ${currentbet.amount}`}</p>
+                    <p>{`Bet Amount: $${currentbet.amount}`}</p>
                 </div>
             </div>
     
