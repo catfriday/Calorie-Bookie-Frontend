@@ -87,7 +87,7 @@ const MyFoodLog = (props) => {
 
            <br></br>
            <br></br>
-           <h1>Please Start Your Daily 30 Log</h1>
+           <h1 className='goals-div'>Please Start Your Daily 30 Log</h1>
        </Fragment>
        :
         <Fragment>

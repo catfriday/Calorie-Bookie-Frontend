@@ -26,6 +26,7 @@ const LoginSignUp = (props) => {
                     <input className='form' name="password" type="text" placeholder='password' type='password' ></input><br></br>
                     <input className='button' value='Login' type="submit"/>
                 </form>
+                <p>or</p>
             <p className='sign-up-h2' onClick={() => history.push('/create_profile')}>Register</p>
             </div>
         

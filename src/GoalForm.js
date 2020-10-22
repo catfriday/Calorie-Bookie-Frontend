@@ -65,19 +65,19 @@ let selectedOption = (e) => {
         
         <div>
 
-         {lbGoal === 1300 ? <div><h2>1300 calories per day will be your goal</h2><button className='button' onClick={() => {
+         {lbGoal === 1300 ? <div><h2 className='goals-div2'>1300 Calories Per Day Will Be Your Goal!</h2><button className='button' onClick={() => {
          props.isSet(true)
          props.acceptGoal(lbGoal)
         }
         }>Accept Goal</button></div>
 
-         : lbGoal === 1250 ?  <div><h2>1250 calories per day will be your goal</h2><button className='button' onClick={() =>{
+         : lbGoal === 1250 ?  <div><h2 className='goals-div2'>1250 Calories Per Day Will Be Your Goal!</h2><button className='button' onClick={() =>{
             props.isSet(true)
             props.acceptGoal(lbGoal)
         }
         }>Accept Goal</button></div>
 
-          : lbGoal === 1200 ? <div><h2>1200 calories per day will be your goal</h2><button className='button' onClick={() =>{
+          : lbGoal === 1200 ? <div><h2 className='goals-div2'>1200 Calories Per Day Will Be Your Goal!</h2><button className='button' onClick={() =>{
             props.isSet(true)
             props.acceptGoal(lbGoal)
         }    

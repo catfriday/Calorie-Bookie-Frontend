@@ -208,6 +208,42 @@
     /* border-radius: 7px; */
    }
 
+   .goals-div{
+    position: relative;
+    left:28%;
+    /* font-weight: bold; */
+    border: white solid 1px;
+    width: 55rem;
+    height: 4rem;
+    text-align: center;
+    top:-10px;
+    /* font-size: 40px; */
+    /* box-shadow: 3px 4px red; */
+    box-shadow: 5px 10px 8px #888888;
+    border: 3px solid rgb(242, 252, 99);
+    /* font-family: Andale Mono; */
+    /* border-radius: 7px; */
+   }
+
+   .goals-div2{
+    position: relative;
+    left:35%;
+    /* font-weight: bold; */
+    border: white solid 1px;
+    width: 35rem;
+    height: 3rem;
+    text-align: center;
+    top:-10px;
+    font-size: 25px;
+    /* box-shadow: 3px 4px red; */
+    box-shadow: 5px 10px 8px #888888;
+    border: 3px solid rgb(242, 252, 99);
+    /* font-family: Andale Mono; */
+    /* border-radius: 7px; */
+   }
+
+
+
    .profile-card{
     text-align: center;
     border: white solid 2px;

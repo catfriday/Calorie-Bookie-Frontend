@@ -42,7 +42,7 @@ let handleSubmit = (e) => {
 
 
     return(<div>
-        <h1> Start Your 30 Day Log and Place Bet</h1>
+        <h1 className='goals-div'> Start Your 30 Day Log and Place Bet</h1>
 
         
         {goalSet ? 
