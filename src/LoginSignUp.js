@@ -30,7 +30,7 @@ const LoginSignUp = (props) => {
             <p className='sign-up-h2' onClick={() => history.push('/create_profile')}>Register</p>
             </div>
         
-        {/* <Link to="/movies"> Show All Movies </Link>  */}
+       
 
 
         </div>)

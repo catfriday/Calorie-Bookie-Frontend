@@ -45,7 +45,7 @@ let selectedOption = (e) => {
 
         <h3>Goals</h3>
         <div>
-        <p>How Much Weight Would You Like to Lose Per Week?</p>
+            <p>How Much Weight Would You Like to Lose Per Week?</p>
         </div>
         
         <div className='goal-form'>

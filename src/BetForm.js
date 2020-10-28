@@ -58,7 +58,9 @@ let handleSubmit = (e) => {
         </form>
         </div>
         :
-        <GoalForm isSet={isSet} acceptGoal={props.acceptGoal}/>
+        <GoalForm 
+            isSet={isSet} 
+            acceptGoal={props.acceptGoal}/>
 
             }
     </div>)

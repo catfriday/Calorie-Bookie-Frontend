@@ -58,8 +58,8 @@ const FoodItem = (props) => {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label>How Many Servings?</label>
                 <input className='servings' name="serving" type="number" step="any"  placeholder='serving size' onChange={(e) => calcCal(e)}></input><br></br>
-                <label>Calories</label><input className='servings' name="calories" type="number" placeholder='calories' value={props.food.calories * parseFloat(servings)} ></input><br></br>
-                <label>Which Meal</label>
+                    <label>Calories</label><input className='servings' name="calories" type="number" placeholder='calories' value={props.food.calories * parseFloat(servings)} ></input><br></br>
+                    <label>Which Meal</label>
                     <select className='food-dropdown' onChange={(e) => categoryType(e.target.value)}>
                         <option disabled selected value>Category </option>
                         <option value='Breakfast' >Breakfast</option>

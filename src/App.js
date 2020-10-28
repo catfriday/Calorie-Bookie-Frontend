@@ -207,7 +207,9 @@ render(){
       {/* this.state.currentUser.token */}
       {this.state.loggedIn ? 
           <Fragment>
-            <NewNav logout={this.logout} bet={this.state.currentBet}/>
+            <NewNav 
+              logout={this.logout} 
+              bet={this.state.currentBet}/>
             <br></br><br></br>
             {/* {this.state.dailyLogs.length === 0 ? <button onClick={this.createlogs}>Create Daily 30 Log</button>
             : null} */}
@@ -218,31 +220,50 @@ render(){
 
       <Switch>
         <Route path='/home' render={(routerProps) =>
-           <LoginSignUp {...routerProps} 
+           <LoginSignUp  
+              {...routerProps} 
               login={this.login} 
               currentUser={this.state.currentUser}/>} />
     
         <Route path='/create_profile' render={(routerProps) => 
-            <CreateProfileForm {...routerProps} createProfile={this.createProfile}/>} />
+            <CreateProfileForm 
+                {...routerProps} 
+                createProfile={this.createProfile}/>} />
 
         <Route path='/goals_form' render={(routerProps) =>
-          <GoalForm {...routerProps} currentUser={this.state.currentUser} acceptGoal={this.acceptGoal}/>} /> 
+          <GoalForm 
+              {...routerProps} 
+              currentUser={this.state.currentUser} 
+              acceptGoal={this.acceptGoal}/>} /> 
 
         <Route path='/my_dash' render={(routerProps) =>
-          <MyDash {...routerProps} currentUser={this.state.currentUser} dailyCalories={this.state.dailyCalories} bet={this.state.currentBet} monthly_progress={this.state.monthly_progress} todays_calories={this.state.todays_calories} setMonthlyProgress={this.setMonthlyProgress}/> }/>
+          <MyDash 
+              {...routerProps} 
+              currentUser={this.state.currentUser} 
+              dailyCalories={this.state.dailyCalories} 
+              bet={this.state.currentBet} 
+              monthly_progress={this.state.monthly_progress} 
+              todays_calories={this.state.todays_calories} 
+              setMonthlyProgress={this.setMonthlyProgress}/> }/>
         
         <Route exact path='/my_food_log' render={(routerProps) =>
-          <MyFoodLog {...routerProps} 
+          <MyFoodLog 
+            {...routerProps} 
             currentUser={this.state.currentUser} 
             logsArray={this.state.dailyLogs} 
             setMonthlyProgress={this.setMonthlyProgress}
             todayCalories={this.todayCalories}/>} />
        
        <Route path='/my_profile' render={(routerProps) => 
-        <MyProfile {...routerProps} currentUser={this.state.currentUser} createlogs={this.createlogs}/>} />
+        <MyProfile 
+            {...routerProps} 
+            currentUser={this.state.currentUser} 
+            createlogs={this.createlogs}/>} />
 
         <Route path='/my_bet_dash' render={(routerProps) =>
-          <MyBetDash currentUser={this.state.currentUser} bet={this.state.currentBet}/> }/>
+          <MyBetDash 
+              currentUser={this.state.currentUser} 
+              bet={this.state.currentBet}/> }/>
 
           <Route path='/bet_form' render={(routerProps) =>
           <BetForm 
