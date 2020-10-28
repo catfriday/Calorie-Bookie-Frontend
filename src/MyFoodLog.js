@@ -92,26 +92,26 @@ const MyFoodLog = (props) => {
        :
         <Fragment>
         <h1>My Food Log</h1>
-      <form onSubmit={(e) => newLogButton(e)}>
-          <div className='custom-select'>
+            <form onSubmit={(e) => newLogButton(e)}>
+                <div className='custom-select'>
 
-        <select className='select' onChange={(e) => setId(e.target.value)}>
-            <option disabled selected value> </option>
-                {logs.map(log => {
-                    return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >
-                            {getDate(log) === new Date().toDateString() ?
-                            'Today'
-                            :
-                            `${log.day_number.toUpperCase()}, ${getDate(log)}`
+                <select className='select' onChange={(e) => setId(e.target.value)}>
+                    <option disabled selected value> </option>
+                        {logs.map(log => {
+                            return  <option onMouseOver={('hey')} value={log.id} data-value={log.day_number} >
+                                    {getDate(log) === new Date().toDateString() ?
+                                    'Today'
+                                    :
+                                    `${log.day_number.toUpperCase()}, ${getDate(log)}`
 
-                            }
-                            </option>
-                    })}  
-        </select>
-            <input value='go' className='drop-down-button' type="submit" ></input>
-          </div>
-          <br></br>
-     </form>
+                                    }
+                                    </option>
+                            })}  
+                </select>
+                    <input value='go' className='drop-down-button' type="submit" ></input>
+                </div>
+                <br></br>
+            </form>
             {showLog ? 
                 <Fragment>
                     {/* <h1>{day_number.toUpperCase()}
