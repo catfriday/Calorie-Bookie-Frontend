@@ -14,6 +14,7 @@ const CreateProfileForm = (props) => {
           }
           }>
              
+            
                     <input className='form' name="name" type="text" placeholder='name'></input><br></br>
                     <input className='form' name="email" type="text" placeholder='email'></input><br></br>
                     <input className='form' name="password" type="text" placeholder='password'></input><br></br>
