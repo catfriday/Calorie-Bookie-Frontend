@@ -15,6 +15,7 @@ import FoodList from './FoodList';
 import MyProfile from './MyProfile';
 import MyBetDash from './MyBetDash';
 import BetForm from './BetForm';
+import EditProfile from './EditProfile';
 
 
 class App extends Component {
@@ -272,6 +273,10 @@ render(){
             acceptGoal={this.acceptGoal} 
             createLogs={this.createlogs}
             updateBet={this.updateBet}/>} />
+
+          <Route path='/edit_profile'  render={(routerProps) =>
+            <EditProfile 
+              currentUser={this.state.currentUser}/> } />
 
         {/* <Route path='/my_food_log/:day_number' render={(routerProps) =>
           <FoodSearchBar {...routerProps} /> }/>
