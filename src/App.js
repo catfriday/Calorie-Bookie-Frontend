@@ -198,6 +198,35 @@ todayCalories =(value) => {
   })
 }
 
+handleChange = (e) =>{
+  console.log(e.target)
+  let name = e.target.name
+  let value = e.target.value
+
+  this.setState({
+    currentUser: {...this.state.currentUser,
+      [name]: value }
+    })
+}
+
+patchUser = (e) => {
+  e.preventDefault()
+  let user = this.state.currentUser
+  console.log(user)
+  //  fetch(`http://localhost:3000/api/v1/users/${this.state.currentUser.id}`, {
+  //   method: 'PATCH',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     Accept: 'application.json',
+  //     Authorization:  `Bearer ${localStorage.token}`
+  //   },
+  //   body: JSON.stringify({
+  //     user: this.state.currentUser
+  //   })
+  //  })
+  //  .then(resp => resp.json())
+  //  .then(updatedUser => console.log(updatedUser))
+}
 
 
 render(){
@@ -276,7 +305,9 @@ render(){
 
           <Route path='/edit_profile'  render={(routerProps) =>
             <EditProfile 
-              currentUser={this.state.currentUser}/> } />
+              currentUser={this.state.currentUser}
+              handleChange={this.handleChange}
+              patchUser={this.patchUser} /> } />
 
         {/* <Route path='/my_food_log/:day_number' render={(routerProps) =>
           <FoodSearchBar {...routerProps} /> }/>
