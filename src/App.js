@@ -213,19 +213,26 @@ patchUser = (e) => {
   e.preventDefault()
   let user = this.state.currentUser
   console.log(user)
-  //  fetch(`http://localhost:3000/api/v1/users/${this.state.currentUser.id}`, {
-  //   method: 'PATCH',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     Accept: 'application.json',
-  //     Authorization:  `Bearer ${localStorage.token}`
-  //   },
-  //   body: JSON.stringify({
-  //     user: this.state.currentUser
-  //   })
-  //  })
-  //  .then(resp => resp.json())
-  //  .then(updatedUser => console.log(updatedUser))
+
+  fetch(`http://localhost:3000/api/v1/users/${this.state.currentUser.id}`, {
+      method: 'PATCH',
+      headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+          Authorization:  `Bearer ${localStorage.token}`
+  },
+      body: JSON.stringify({
+        user: this.state.currentUser
+  })
+})
+  .then(resp => resp.json())
+  .then(user => {   
+    this.setState({
+      currentUser: user
+    }) 
+      console.log(user)
+     
+  })
 }
 
 
