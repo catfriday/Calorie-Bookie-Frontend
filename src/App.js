@@ -18,6 +18,12 @@ import BetForm from './BetForm';
 import EditProfile from './EditProfile';
 
 
+// let reducer = (state, action) => {
+//   return state
+// }
+
+// const store = createStore(reducer) //reducer as argument
+
 class App extends Component {
 state = {
   currentUser: localStorage,
