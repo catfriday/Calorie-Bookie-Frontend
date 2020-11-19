@@ -3,6 +3,7 @@ import { Line, Circle } from 'rc-progress';
 import ProgressBar from "./ProgressBar";
 import './App.css';
 import { Progress } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 const MyDash = (props) => {
     let  {image, name, calories } = props.currentUser 
@@ -103,8 +104,21 @@ const MyDash = (props) => {
                         </div>
                     }
             </div>
-
+            <button onClick={() => props.changeTest()}>Redux</button>
     </div>)
 }
 
-export default MyDash
+
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {test: state.FirstReducer.test}
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeTest: (() => dispatch({type: "changeTest"}))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps )(MyDash)
+// export default MyDash
