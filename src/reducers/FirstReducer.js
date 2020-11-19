@@ -9,7 +9,7 @@ let FirstReducer = (state=initialState, action) => {
         case "changeTest":
             return{
                 ...state,
-                test: "I think I got Redux working"
+                test: "I think I finally got Redux working"
             }
         
         default:
