@@ -3,8 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
 import { createStore } from 'redux';
-import {Provider} from 'react-redux'
+import {Provider} from 'react-redux';
+import rootReducer from './reducers/rootReducer'
+
+// remeber to use import { connect } from 'react-redux' in the component that needs the state
+const store = createStore(rootReducer)
 
 ReactDOM.render(
   <React.StrictMode>
