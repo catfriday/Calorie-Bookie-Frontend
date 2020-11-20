@@ -104,7 +104,7 @@ const MyDash = (props) => {
                         </div>
                     }
             </div>
-            <button onClick={() => props.changeTest()}>Redux</button>
+            {/* <button onClick={() => props.changeTest()}>Redux</button>  //redux practice*/}
     </div>)
 }
 
