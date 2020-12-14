@@ -4,10 +4,10 @@ Calorie Bookie is a web application where a user can log their daily calorie int
 
 
 
-![Calorie Bookie]
+<!-- ![Calorie Bookie] -->
 <!-- (https://github.com/catfriday/Calorie-Bookie-Frontend/blob/master/src/Calorie%20Bookie%20Logo%20transparent.png) -->
 <p align="center">
-  <img width="460" height="300" src="https://github.com/catfriday/Calorie-Bookie-Frontend/blob/master/src/Calorie%20Bookie%20Logo%20transparent.png/460/300">
+  <img width="460" height="300" src="https://github.com/catfriday/Calorie-Bookie-Frontend/blob/master/src/Calorie%20Bookie%20Logo%20transparent.png">
 </p>
 <!-- ![Calorie Bookie](https://github.com/DevDave0/obsido-frontend/blob/master/Screen%20Shot%202020-10-06%20at%2012.42.16%20PM.png) -->
 
