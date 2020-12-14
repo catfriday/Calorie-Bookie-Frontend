@@ -1,6 +1,6 @@
 # Calorie Bookie
 
-Calorie Bookie is a web application where a user can log their daily calorie intake and bet against the calorie bookie on whether or not they reach their goal for 30 days. A user will create an account and then set a bet. The bet will be placed by putting in the amount of weight per week they would like to lose (1-2 lbs), then they will be given thier daily calorie intake limit (1200-1300 cal). Once the daily calorie goal is set, a user will bet a minimum of $100 and start a 30 day log. At the end of the 30 days, the user will win if they have completed at least 90% of their 30 day log entries and heve reached their daily goal of at least 90% during the 30 days. If the user wins, they get to keep the amount they bet. If the user loses, the calorie bookie keeps the money.
+Calorie Bookie is a web application where a user can log their daily calorie intake and bet against the calorie bookie on whether or not they reach their goal for 30 days. A user will create an account and then set a bet. The bet will be placed by putting in the amount of weight per week they would like to lose (1-2 lbs), then they will be given thier daily calorie intake limit (1200-1300 cal). Once the daily calorie goal is set, a user will bet a minimum of $100 and start a 30 day log. At the end of the 30 days, the user will win if they have completed at least 90% of their 30 day log entries and have reached their daily goal of at least 90% during the 30 days. If the user wins, they get to keep the amount they bet. If the user loses, the calorie bookie keeps the money.
 
 
 
@@ -11,7 +11,7 @@ Calorie Bookie is a web application where a user can log their daily calorie int
 </p>
 <!-- ![Calorie Bookie](https://github.com/DevDave0/obsido-frontend/blob/master/Screen%20Shot%202020-10-06%20at%2012.42.16%20PM.png) -->
 
-Libraries and Resources used: 
+Libraries, Frameworks and Resources used: 
 
 * React
 * React-Router-Dom
@@ -40,6 +40,3 @@ Project backend: https://github.com/catfriday/Calorie-Bookie-backend
 
 Feel free to contact me for any inquiries at cat.friday@gmail.com
 
-## License
-
-This project uses the following license: MIT License
