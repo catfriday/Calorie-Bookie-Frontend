@@ -8,21 +8,6 @@ const EditProfile = (props) => {
     const [userInfo, updateInfo] = useState(props.currentUser)
     const history = useHistory();
 
-//    let handleChange = (e) =>{
-//         console.log(e.target)
-//         updateInfo({
-//             [e.target.name]: e.target.value
-//             // user: {...user, [e.target.name]: e.target.value}
-//         })
-
-//     }
-
-    // let onSubmit = (e) => {
-    //     e.preventDefault()
-    //     console.log(e.target.name.value)
-    //     console.log(e.target.weight.value)
-    // }
-
 
     return (<div>
 

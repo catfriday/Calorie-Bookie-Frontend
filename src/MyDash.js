@@ -44,20 +44,7 @@ const MyDash = (props) => {
         })
     }, [])
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:3000/api/v1/bets/${props.bet.id}`,{
-    //         method:'GET',
-    //         headers: {  
-    //             Authorization:`Bearer ${localStorage.token}`
-    //         }
-    //     })
-    //     .then(res => res.json())
-    //     .then(bet => {
-    //         console.log(bet)
-            
-    //         })
-    // }, [])
-
+    
     return(
     
     <div >
@@ -104,6 +91,7 @@ const MyDash = (props) => {
                         </div>
                     }
             </div>
+            {/* REDUX PRACTICE BELOW */}
             {/* <button onClick={() => props.changeTest()}>Redux</button>  //redux practice*/}
     </div>)
 }
@@ -121,4 +109,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps )(MyDash)
-// export default MyDash

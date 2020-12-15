@@ -27,11 +27,6 @@ const MyBetDash = (props) => {
     return(<div>
 
     <h1>My Bet Dash</h1>
-        {/* <div>
-        <h2>{currentbet.win_or_lose}</h2>
-        <p>{`Bet Amount ${currentbet.amount}`}</p>
-        <p>{`Reserve Amount ${currentbet.reserve}`}</p>
-        </div> */}
 
 <div className='bet-card'>
 

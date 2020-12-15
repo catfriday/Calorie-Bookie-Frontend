@@ -17,11 +17,10 @@ import MyBetDash from './MyBetDash';
 import BetForm from './BetForm';
 import EditProfile from './EditProfile';
 
-
+// REDUX PRACTICE RIGHT BELOW not necessary for app functionality
 // let reducer = (state, action) => {
 //   return state
 // }
-
 // const store = createStore(reducer) //reducer as argument
 
 class App extends Component {
@@ -151,8 +150,6 @@ createProfile = (e) => {
           userInfo.daily_logs = userInfo.daily_logs 
           localStorage.monthly_progress = userInfo.monthly_progress
         
-          // userInfo.daily_logs
-          // localStorage.user = userInfo
           this.setState({
             currentUser: userInfo,
             currentUser: localStorage,
@@ -254,8 +251,6 @@ render(){
               logout={this.logout} 
               bet={this.state.currentBet}/>
             <br></br><br></br>
-            {/* {this.state.dailyLogs.length === 0 ? <button onClick={this.createlogs}>Create Daily 30 Log</button>
-            : null} */}
           </Fragment>
           
            : null } 
